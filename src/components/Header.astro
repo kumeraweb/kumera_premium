@@ -1,0 +1,89 @@
+---
+const { logoText = 'KÜMERA' } = Astro.props
+---
+
+<header class="km-header">
+  <div class="km-container km-header-inner">
+    <a href="/" class="km-logo">
+      {logoText}
+    </a>
+  </div>
+</header>
+
+<style>
+  /* -------------------------------------------------- */
+  /* BASE HEADER */
+  /* -------------------------------------------------- */
+  .km-header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    padding: var(--space-md) 0;
+    background: rgba(255, 255, 255, 0.75); /* BLANCO TRANSLÚCIDO */
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* NEGRO SUAVE */
+    transition:
+      padding 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .km-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* -------------------------------------------------- */
+  /* LOGO */
+  /* -------------------------------------------------- */
+  .km-logo {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text); /* AHORA NEGRO */
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .km-logo:hover {
+    opacity: 0.6;
+  }
+
+  /* -------------------------------------------------- */
+  /* HEADER SCROLLED */
+  /* -------------------------------------------------- */
+  .km-header.scrolled {
+    padding: var(--space-sm) 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+  }
+
+  /* -------------------------------------------------- */
+  /* MOBILE */
+  /* -------------------------------------------------- */
+  @media (max-width: 768px) {
+    .km-header {
+      padding: var(--space-sm) 0;
+    }
+
+    .km-logo {
+      font-size: 1.35rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  const header = document.querySelector('.km-header')
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled')
+    } else {
+      header.classList.remove('scrolled')
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll)
+</script>
