@@ -4,28 +4,30 @@ const { logoText = 'KÜMERA' } = Astro.props
 
 <header class="km-header">
   <div class="km-container km-header-inner">
-    <a href="/" class="km-logo">
-      {logoText}
-    </a>
+    <div class="km-logo-wrap">
+      <a href="/" class="km-logo">{logoText}</a>
+    </div>
   </div>
 </header>
 
 <style>
   /* -------------------------------------------------- */
-  /* BASE HEADER */
+  /* BASE HEADER — blanco translúcido                   */
   /* -------------------------------------------------- */
   .km-header {
     position: sticky;
     top: 0;
     z-index: 99;
     padding: var(--space-md) 0;
-    background: rgba(255, 255, 255, 0.75); /* BLANCO TRANSLÚCIDO */
+
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* NEGRO SUAVE */
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.08); */
+
     transition:
       padding 0.25s ease,
-      background 0.25s ease,
-      border-color 0.25s ease;
+      background 0.4s ease,
+      border-color 0.4s ease;
   }
 
   .km-header-inner {
@@ -35,33 +37,52 @@ const { logoText = 'KÜMERA' } = Astro.props
   }
 
   /* -------------------------------------------------- */
-  /* LOGO */
+  /* KO TEXT CONTROLADO                                 */
   /* -------------------------------------------------- */
+
+  /* Este wrapper permite el knockout pero mantiene el texto negro */
+  .km-logo-wrap {
+    mix-blend-mode: difference; /* KO sutil solo en blanco */
+  }
+
+  /* Texto inicial: negro profundo */
   .km-logo {
     font-family: var(--font-heading);
-    font-size: 1.55rem;
+    font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: -0.03em;
-    color: var(--color-text); /* AHORA NEGRO */
+
+    color: #000; /* Negro sólido */
     text-decoration: none;
-    transition: opacity 0.2s ease;
+
+    transition: color 0.45s ease;
+    opacity 0.2s ease;
   }
 
+  /* Hover */
   .km-logo:hover {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 
   /* -------------------------------------------------- */
-  /* HEADER SCROLLED */
+  /* SCROLLED — modo oscuro total                       */
   /* -------------------------------------------------- */
   .km-header.scrolled {
     padding: var(--space-sm) 0;
-    background: rgba(255, 255, 255, 0.95);
-    border-bottom-color: rgba(0, 0, 0, 0.12);
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .km-header.scrolled .km-logo-wrap {
+    mix-blend-mode: normal; /* KO desactivado */
+  }
+
+  .km-header.scrolled .km-logo {
+    color: #fff; /* logo blanco sólido */
   }
 
   /* -------------------------------------------------- */
-  /* MOBILE */
+  /* MOBILE                                             */
   /* -------------------------------------------------- */
   @media (max-width: 768px) {
     .km-header {

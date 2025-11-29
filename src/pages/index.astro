@@ -2,6 +2,10 @@
 import Hero from '../components/Hero.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Marquee from '../components/Marquee.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+import Editorial from '../components/Editorial.astro'
+import BentoServices from '../components/BentoServices.astro'
+import CTA from '../components/CTA.astro'
 ---
 
 <BaseLayout
@@ -10,4 +14,20 @@ import Marquee from '../components/Marquee.astro'
 >
   <Hero />
   <Marquee />
+  <ProjectCard
+    image="test_pic.webp"
+    title="UCORP — PLATAFORMA WEB"
+    subtitle="Desarrollo fullstack para una empresa de servicios médicos"
+  />
+
+  <ProjectCard
+    image="test_pic.webp"
+    title="ESTANQUES PINTUÉ"
+    subtitle="Ecommerce, catálogo dinámico y campaña Google Ads"
+  />
+
+  <Editorial />
+  <BentoServices />
+
+  <CTA />
 </BaseLayout>

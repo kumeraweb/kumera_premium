@@ -1,0 +1,121 @@
+<footer class="km-footer">
+  <div class="km-container km-footer-inner reveal-on-scroll">
+    <div class="km-footer-brand">
+      <h3>KÜMERA</h3>
+      <p>Ingeniería, diseño y performance digital.</p>
+    </div>
+
+    <div class="km-footer-info">
+      <p><span>Ubicación:</span> Concepción, Chile</p>
+      <p><span>Teléfono:</span> <a href="tel:+56994186218">+56 9 9418 6218</a></p>
+      <p><span>Email:</span> <a href="mailto:contacto@kumeraweb.com">contacto@kumeraweb.com</a></p>
+    </div>
+
+    <div class="km-footer-copy">
+      <p>© {new Date().getFullYear()} KÜMERA — Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ------------------------------------------- */
+  /* FOOTER BASE                                  */
+  /* ------------------------------------------- */
+  .km-footer {
+    padding: 6rem 0 3rem 0;
+    background: #ffffff;
+    color: #000;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin-top: 6rem;
+  }
+
+  .km-footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  /* BRAND BLOCK */
+  .km-footer-brand h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.03em;
+  }
+
+  .km-footer-brand p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+  }
+
+  /* INFO BLOCK */
+  .km-footer-info p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .km-footer-info span {
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  .km-footer-info a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+    transition: opacity 0.25s ease;
+  }
+
+  .km-footer-info a:hover {
+    opacity: 0.6;
+  }
+
+  /* COPYRIGHT */
+  .km-footer-copy {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 1.5rem;
+  }
+
+  .km-footer-copy p {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0;
+  }
+
+  /* ------------------------------------------- */
+  /* DESKTOP                                      */
+  /* ------------------------------------------- */
+  @media (min-width: 768px) {
+    .km-footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .km-footer-copy {
+      border-top: none;
+      padding-top: 0;
+      align-self: flex-end;
+    }
+  }
+
+  /* ------------------------------------------- */
+  /* REVEAL ANIMATION                             */
+  /* ------------------------------------------- */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 0.9s cubic-bezier(0.25, 0.6, 0.35, 1),
+      transform 0.9s cubic-bezier(0.25, 0.6, 0.35, 1);
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

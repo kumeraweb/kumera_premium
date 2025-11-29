@@ -1,0 +1,162 @@
+---
+import { BarChart3, Rocket, Smartphone, Globe } from '@lucide/astro'
+
+const services = [
+  {
+    icon: BarChart3,
+    title: 'Campañas de Google Ads',
+    desc: 'Gestión profesional enfocada en resultados reales y optimización continua.'
+  },
+  {
+    icon: Rocket,
+    title: 'Aplicaciones Web',
+    desc: 'Desarrollo de sistemas, dashboards y plataformas modernas de alto rendimiento.'
+  },
+  {
+    icon: Smartphone,
+    title: 'Apps Móviles',
+    desc: 'iOS y Android construidas con tecnología moderna y enfoque en experiencia.'
+  },
+  {
+    icon: Globe,
+    title: 'Diseño Web Moderno',
+    desc: 'Sitios rápidos, claros, con foco en conversión y estética profesional.'
+  }
+]
+---
+
+<section class="km-bento">
+  <div class="km-container">
+    <div class="km-bento-grid">
+      {
+        services.map(({ icon: Icon, title, desc }) => (
+          <div class="km-bento-card">
+            <Icon class="km-bento-icon" />
+            <h3 class="km-bento-title">{title}</h3>
+            <p class="km-bento-desc">{desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* -------------------------------------------------- */
+  /* BASE                                                */
+  /* -------------------------------------------------- */
+  .km-bento {
+    padding: 8rem 0;
+    background: #fff;
+    color: #000;
+  }
+
+  .km-bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* -------------------------------------------------- */
+  /* CARD                                                */
+  /* -------------------------------------------------- */
+  .km-bento-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    padding: 2rem;
+    background: #fff;
+    transition:
+      border-color 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .km-bento-card:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+  }
+
+  /* -------------------------------------------------- */
+  /* ICON                                                */
+  /* -------------------------------------------------- */
+  .km-bento-icon {
+    width: 2rem;
+    height: 2rem;
+    color: #000;
+    opacity: 0.85;
+    margin-bottom: 1.2rem;
+  }
+
+  /* -------------------------------------------------- */
+  /* TITLE                                               */
+  /* -------------------------------------------------- */
+  .km-bento-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin: 0 0 0.8rem 0;
+  }
+
+  /* -------------------------------------------------- */
+  /* DESCRIPTION                                         */
+  /* -------------------------------------------------- */
+  .km-bento-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* -------------------------------------------------- */
+  /* DESKTOP LAYOUT – BENTO GRID REAL                   */
+  /* -------------------------------------------------- */
+  @media (min-width: 768px) {
+    .km-bento-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .km-bento-card {
+      padding: 2.5rem;
+    }
+
+    .km-bento-title {
+      font-size: 1.9rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .km-bento-grid {
+      grid-template-columns: repeat(12, 1fr);
+
+      /* bento real */
+      grid-auto-flow: dense;
+    }
+
+    .km-bento-card {
+      padding: 3rem;
+    }
+
+    /* Diseño bento desigual:
+       1 grande, 2 medianos, 1 vertical alto */
+    .km-bento-card:nth-child(1) {
+      grid-column: span 6;
+      grid-row: span 2;
+    }
+
+    .km-bento-card:nth-child(2) {
+      grid-column: span 3;
+    }
+
+    .km-bento-card:nth-child(3) {
+      grid-column: span 3;
+    }
+
+    .km-bento-card:nth-child(4) {
+      grid-column: span 12;
+    }
+  }
+</style>

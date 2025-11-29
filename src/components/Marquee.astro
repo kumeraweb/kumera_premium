@@ -1,30 +1,22 @@
 ---
-import { Rocket, Smartphone, Globe, BarChart3 } from '@lucide/astro'
-
-const items = [
-  { icon: BarChart3, text: 'Campañas de Google Ads' },
-  { icon: Rocket, text: 'Aplicaciones Web' },
-  { icon: Smartphone, text: 'Apps Móviles' },
-  { icon: Globe, text: 'Diseño Web Moderno' }
-]
+const items = ['Campañas de Google Ads', 'Aplicaciones Web', 'Apps Móviles', 'Diseño Web Moderno']
 ---
 
 <section class="km-marquee">
   <div class="km-marquee-track">
     {
-      items.map(({ icon: Icon, text }) => (
+      items.map((text) => (
         <div class="km-marquee-item">
-          <Icon class="icon" />
           <span>{text}</span>
+          <div class="sep">⟡</div>
         </div>
       ))
     }
-
     {
-      items.map(({ icon: Icon, text }) => (
+      items.map((text) => (
         <div class="km-marquee-item">
-          <Icon class="icon" />
           <span>{text}</span>
+          <div class="sep">⟡</div>
         </div>
       ))
     }
@@ -33,47 +25,51 @@ const items = [
 
 <style>
   /* -------------------------------------------------- */
-  /* MARQUEE BASE                                       */
+  /* MARQUEE BASE — fondo deep + texto grande           */
   /* -------------------------------------------------- */
   .km-marquee {
     width: 100%;
     overflow: hidden;
-    background: var(--color-bg);
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    padding: 1rem 0;
+    background: var(--color-bg-deep); /* MISMO FONDO DEL HEADER SCROLLED */
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.6rem 0; /* un poco más alto */
   }
 
   .km-marquee-track {
     display: flex;
     align-items: center;
-    gap: 3rem;
     white-space: nowrap;
+    gap: 4rem; /* más elegante con más aire */
 
-    animation: marqueeMove 22s linear infinite;
+    animation: marqueeMove 20s linear infinite;
   }
 
+  /* -------------------------------------------------- */
+  /* ÍTEM — más grande, más editorial                   */
+  /* -------------------------------------------------- */
   .km-marquee-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--color-text);
-
+    gap: 2rem; /* separador amplio */
+    font-weight: 600;
+    font-size: 1.4rem; /* ← MUCHO MÁS GRANDE */
     letter-spacing: -0.02em;
   }
 
   .km-marquee-item span {
-    color: var(--color-brand); /* azul petróleo */
-    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88); /* blanco elegante */
   }
 
-  .icon {
-    width: 1.2rem;
-    height: 1.2rem;
-    color: var(--color-text);
-    opacity: 0.65;
+  /* -------------------------------------------------- */
+  /* SEPARADOR ⟡                                         */
+  /* -------------------------------------------------- */
+  .sep {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.22);
+    line-height: 0;
+    transform: translateY(-2px);
+    user-select: none;
   }
 
   /* -------------------------------------------------- */
@@ -92,19 +88,22 @@ const items = [
   /* MOBILE                                              */
   /* -------------------------------------------------- */
   @media (max-width: 768px) {
+    .km-marquee {
+      padding: 1.2rem 0;
+    }
+
     .km-marquee-track {
-      animation-duration: 18s; /* un poquito más rápido */
-      gap: 2rem;
+      animation-duration: 16s;
+      gap: 2.5rem;
     }
 
     .km-marquee-item {
-      font-size: 0.95rem;
-      gap: 0.5rem;
+      font-size: 1.1rem;
+      gap: 1.2rem;
     }
 
-    .icon {
-      width: 1rem;
-      height: 1rem;
+    .sep {
+      font-size: 1.6rem;
     }
   }
 </style>
