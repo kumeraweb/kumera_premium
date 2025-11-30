@@ -1,0 +1,84 @@
+---
+import { MessageCircle } from '@lucide/astro'
+const phone = '+56994186218'
+const message = encodeURIComponent('Hola! Me gustaría hablar sobre un proyecto.')
+const wa = `https://wa.me/${phone}?text=${message}`
+---
+
+<a href={wa} target="_blank" class="km-floating-wa" aria-label="WhatsApp">
+  <MessageCircle class="wa-icon" />
+</a>
+
+<style>
+  .km-floating-wa {
+    position: fixed;
+    bottom: 2rem;
+    right: 1.4rem;
+    z-index: 999;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: #fff;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+    transition:
+      transform 0.25s cubic-bezier(0.25, 0.6, 0.35, 1),
+      opacity 0.25s ease;
+    animation: pulseAttention 10s infinite;
+  }
+
+  .km-floating-wa:hover {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+
+  .wa-icon {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2;
+  }
+
+  /* MICRO ANIMACIÓN */
+  @keyframes pulseAttention {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    93% {
+      transform: translateY(0) scale(1);
+    }
+    95% {
+      transform: translateY(-2px) scale(1.05);
+    }
+    97% {
+      transform: translateY(0) scale(0.98);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .km-floating-wa {
+      width: 54px;
+      height: 54px;
+      bottom: 1.4rem;
+      right: 1.2rem;
+    }
+
+    .wa-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+</style>
