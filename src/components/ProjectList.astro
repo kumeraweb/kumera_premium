@@ -1,0 +1,22 @@
+---
+import { projects } from '../data/projects'
+import ProjectItem from './ProjectItem.astro'
+---
+
+<section id="proyectos" class="project-list">
+  {projects.map((p) => <ProjectItem project={p} />)}
+</section>
+
+<style>
+  .project-list {
+    padding: 4rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 800px) {
+    .project-list {
+      padding: 3rem 1.6rem;
+    }
+  }
+</style>

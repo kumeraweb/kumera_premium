@@ -27,6 +27,7 @@ body {
   /* Marca */
   --color-brand: #0d1f2e; /* tu azul petróleo */
   --color-accent: #f46a1c; /* naranjo premium */
+  --color-dark: #000000;
 
   /* Tipografías */
   --font-heading: 'Space Grotesk', system-ui, sans-serif;

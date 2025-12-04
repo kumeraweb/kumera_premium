@@ -1,10 +1,9 @@
 ---
 import Hero from '../components/Hero.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Marquee from '../components/Marquee.astro'
-import ProjectCard from '../components/ProjectCard.astro'
-import Editorial from '../components/Editorial.astro'
-import BentoServices from '../components/BentoServices.astro'
+import ProjectList from '../components/ProjectList.astro'
+import IntroSection from '../components/IntroSection.astro'
+import CapabilitiesMini from '../components/CapabilitiesMini.astro'
 import CTA from '../components/CTA.astro'
 ---
 
@@ -13,21 +12,8 @@ import CTA from '../components/CTA.astro'
   description="Combinamos ingeniería y creatividad para construir experiencias digitales que convierten clics en clientes."
 >
   <Hero />
-  <Marquee />
-  <ProjectCard
-    image="test_pic.webp"
-    title="UCORP — PLATAFORMA WEB"
-    subtitle="Desarrollo fullstack para una empresa de servicios médicos"
-  />
-
-  <ProjectCard
-    image="test_pic.webp"
-    title="ESTANQUES PINTUÉ"
-    subtitle="Ecommerce, catálogo dinámico y campaña Google Ads"
-  />
-
-  <Editorial />
-  <BentoServices />
-
+  <IntroSection />
+  <CapabilitiesMini />
+  <ProjectList />
   <CTA />
 </BaseLayout>

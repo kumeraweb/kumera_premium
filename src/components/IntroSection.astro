@@ -1,0 +1,118 @@
+<section id="estudio" class="intro reveal-on-scroll">
+  <div class="intro-grid">
+    <h2 class="intro-title">
+      <span
+        id="typing-target"
+        data-text="Ingeniería + Diseño + Performance. // Creamos productos digitales que funcionan."
+      ></span>
+    </h2>
+
+    <p class="intro-text hidden-until-typed">
+      Somos un estudio independiente especializado en construir experiencias digitales que impulsan
+      negocios reales. Combinamos estrategia, diseño y tecnología para crear sitios, apps y campañas
+      que convierten.
+    </p>
+  </div>
+</section>
+
+<style>
+  .intro {
+    padding: 6rem 0 4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .intro-grid {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+
+  .intro-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .intro-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 900px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .intro-title {
+      font-size: 2.2rem;
+    }
+    .intro-text {
+      font-size: 1.05rem;
+    }
+    .intro {
+      padding: 4.5rem 2rem 3.2rem;
+    }
+  }
+
+  #typing-target {
+    border-right: 2px solid #000;
+    padding-right: 4px;
+    white-space: pre-wrap;
+  }
+
+  .typing-done #typing-target {
+    border-right: none;
+  }
+
+  .hidden-until-typed {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .typing-done .hidden-until-typed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script is:inline>
+  const introEl = document.querySelector('.intro')
+  const el = document.getElementById('typing-target')
+  const text = el.dataset.text.replace(/ \/\/ /g, '\n')
+  let i = 0
+  let started = false
+
+  function type() {
+    if (i < text.length) {
+      el.textContent = text.slice(0, i + 1)
+      i++
+      setTimeout(type, 45)
+    } else {
+      introEl.classList.add('typing-done')
+    }
+  }
+
+  function isIntroDeeplyVisible() {
+    const rect = introEl.getBoundingClientRect()
+    const vh = window.innerHeight
+
+    // Require ~30% of the section to be clearly visible before triggering
+    return rect.top < vh * 0.7 && rect.bottom > vh * 0.3
+  }
+
+  const checkInterval = setInterval(() => {
+    if (!started && introEl.classList.contains('is-visible') && isIntroDeeplyVisible()) {
+      started = true
+      setTimeout(type, 300)
+      clearInterval(checkInterval)
+    }
+  }, 120)
+</script>

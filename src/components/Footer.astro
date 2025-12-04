@@ -22,11 +22,15 @@
   /* FOOTER BASE                                  */
   /* ------------------------------------------- */
   .km-footer {
-    padding: 6rem 0 3rem 0;
+    padding: 8rem 0 4rem 0;
     background: #ffffff;
     color: #000;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    margin-top: 6rem;
+    border-top: 2px solid var(--accent);
+  }
+
+  .km-footer {
+    position: relative;
+    overflow: hidden;
   }
 
   .km-footer-inner {
@@ -38,9 +42,10 @@
   /* BRAND BLOCK */
   .km-footer-brand h3 {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     margin: 0 0 0.5rem 0;
     letter-spacing: -0.03em;
+    line-height: 1;
   }
 
   .km-footer-brand p {
@@ -52,7 +57,8 @@
   /* INFO BLOCK */
   .km-footer-info p {
     margin: 0.3rem 0;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
     color: #333;
   }
 
@@ -81,9 +87,10 @@
   }
 
   .km-footer-copy p {
-    font-size: 0.9rem;
-    color: #777;
+    font-size: 0.95rem;
+    color: #555;
     margin: 0;
+    letter-spacing: -0.01em;
   }
 
   /* ------------------------------------------- */
@@ -101,21 +108,5 @@
       padding-top: 0;
       align-self: flex-end;
     }
-  }
-
-  /* ------------------------------------------- */
-  /* REVEAL ANIMATION                             */
-  /* ------------------------------------------- */
-  .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition:
-      opacity 0.9s cubic-bezier(0.25, 0.6, 0.35, 1),
-      transform 0.9s cubic-bezier(0.25, 0.6, 0.35, 1);
-  }
-
-  .reveal-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 </style>
