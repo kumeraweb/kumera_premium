@@ -1,10 +1,18 @@
 ---
 import { projects } from '../data/projects'
 import ProjectItem from './ProjectItem.astro'
+
+const showProjects = false
 ---
 
 <section id="proyectos" class="project-list">
-  {projects.map((p) => <ProjectItem project={p} />)}
+  {
+    showProjects ? (
+      projects.map((p) => <ProjectItem project={p} />)
+    ) : (
+      <p class="coming-soon">🚧 Próximamente: casos de estudio y proyectos seleccionados</p>
+    )
+  }
 </section>
 
 <style>
@@ -18,5 +26,12 @@ import ProjectItem from './ProjectItem.astro'
     .project-list {
       padding: 3rem 1.6rem;
     }
+  }
+
+  .coming-soon {
+    text-align: center;
+    font-size: 1.4rem;
+    opacity: 0.6;
+    padding: 4rem 0;
   }
 </style>
