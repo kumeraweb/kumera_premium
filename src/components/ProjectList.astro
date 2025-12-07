@@ -6,13 +6,7 @@ const showProjects = false
 ---
 
 <section id="proyectos" class="project-list">
-  {
-    showProjects ? (
-      projects.map((p) => <ProjectItem project={p} />)
-    ) : (
-      <p class="coming-soon">🚧 Próximamente: casos de estudio y proyectos seleccionados</p>
-    )
-  }
+  {showProjects ? projects.map((p) => <ProjectItem project={p} />) : <p class="coming-soon" />}
 </section>
 
 <style>
