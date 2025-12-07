@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@lucide/astro": "^0.555.0",
-    "astro": "^5.16.2"
+    "astro": "^5.16.2",
+    "resend": "^6.5.2"
   }
 }

@@ -7,25 +7,26 @@
         Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas.
       </p>
 
-      <form class="contact-form reveal-on-scroll">
+      <form class="contact-form reveal-on-scroll" method="POST" action="/api/contact">
         <div class="field-group">
           <label>Nombre</label>
-          <input type="text" placeholder="Tu nombre" required />
+          <input name="nombre" type="text" placeholder="Tu nombre" required />
         </div>
 
         <div class="field-group">
           <label>Email</label>
-          <input type="email" placeholder="tu@email.com" required />
+          <input name="email" type="email" placeholder="tu@email.com" required />
         </div>
 
         <div class="field-group">
           <label>Tipo de proyecto</label>
-          <input type="text" placeholder="Sitio Web, App, Google Ads…" />
+          <input name="tipo" type="text" placeholder="Sitio Web, App, Google Ads…" />
         </div>
 
         <div class="field-group">
           <label>Mensaje</label>
-          <textarea placeholder="Cuéntanos brevemente en qué puedo ayudarte"></textarea>
+          <textarea name="mensaje" placeholder="Cuéntanos brevemente en qué puedo ayudarte"
+          ></textarea>
         </div>
 
         <button type="submit" class="contact-submit"> Enviar mensaje → </button>
