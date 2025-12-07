@@ -11,7 +11,7 @@ const { logoText = 'KÜMERA' } = Astro.props
     <nav class="km-nav" aria-label="Navegación principal">
       <ul class="km-nav-list">
         <li class="km-nav-item">
-          <a href="#estudio" class="km-nav-link">Estudio</a>
+          <a href="#estudio" class="km-nav-link">¿Qué hacemos?</a>
         </li>
 
         <li class="km-nav-item km-nav-item-capabilities">
@@ -72,7 +72,7 @@ const { logoText = 'KÜMERA' } = Astro.props
         </li>
 
         <li class="km-nav-item">
-          <a href="#proyectos" class="km-nav-link">Trabajo</a>
+          <a href="#proyectos" class="km-nav-link">Proyectos</a>
         </li>
 
         <li class="km-nav-item">
@@ -91,7 +91,7 @@ const { logoText = 'KÜMERA' } = Astro.props
   <div class="km-mobile-inner">
     <nav class="km-mobile-nav">
       <ul>
-        <li><a href="/estudio">Estudio</a></li>
+        <li><a href="#estudio">¿Qué hacemos?</a></li>
 
         <a class="km-mobile-cap-label"> Servicios </a>
 
@@ -104,7 +104,7 @@ const { logoText = 'KÜMERA' } = Astro.props
           <li>Consultoría & Acompañamiento</li>
         </ul>
 
-        <li><a href="/trabajo">Trabajo</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
         <li><a style="opacity:0.35; pointer-events:none;">Journal</a></li>
       </ul>
 
@@ -508,9 +508,12 @@ const { logoText = 'KÜMERA' } = Astro.props
   const mobileToggle = document.querySelector('.km-mobile-toggle')
   const mobilePanel = document.querySelector('.km-mobile-panel')
 
-  mobileToggle.addEventListener('click', () => {
-    mobileToggle.classList.toggle('active')
-    mobilePanel.classList.toggle('active')
+  const mobileLinks = document.querySelectorAll('.km-mobile-nav a')
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileToggle.classList.remove('active')
+      mobilePanel.classList.remove('active')
+    })
   })
 
   const header = document.querySelector('.km-header')
