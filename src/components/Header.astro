@@ -508,6 +508,11 @@ const { logoText = 'KÜMERA' } = Astro.props
   const mobileToggle = document.querySelector('.km-mobile-toggle')
   const mobilePanel = document.querySelector('.km-mobile-panel')
 
+  mobileToggle.addEventListener('click', () => {
+    mobileToggle.classList.toggle('active')
+    mobilePanel.classList.toggle('active')
+  })
+
   const mobileLinks = document.querySelectorAll('.km-mobile-nav a')
   mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
