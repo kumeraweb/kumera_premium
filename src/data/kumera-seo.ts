@@ -2,7 +2,7 @@ export const SEO = {
   site: {
     name: 'Kümera',
     legalName: 'Kumera Servicios Digitales SpA',
-    url: 'https://www.kumeraweb.cl',
+    url: 'https://www.kumeraweb.com',
     locale: 'es_CL',
     language: 'es',
     themeColor: '#0F172A'
@@ -39,8 +39,8 @@ export const SEO = {
 
   organization: {
     name: 'Kümera',
-    url: 'https://www.kumeraweb.cl',
-    logo: 'https://www.kumeraweb.cl/logo.png',
+    url: 'https://www.kumeraweb.com',
+    logo: 'https://www.kumeraweb.com/logo.png',
     sameAs: [
       'https://www.linkedin.com/company/kumera'
       // futuros: instagram, behance, etc
