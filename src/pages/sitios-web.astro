@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import CTA from '../components/CTA.astro'
+import { contact } from '../data/site'
+
+const phone = contact.whatsapp.phone
+const message = encodeURIComponent(contact.whatsapp.messages.web)
+const wa = `https://wa.me/${phone}?text=${message}`
 ---
 
 <BaseLayout
@@ -8,62 +12,329 @@ import CTA from '../components/CTA.astro'
   description="Diseñamos sitios web rápidos, modernos y orientados a conversión para empresas y pymes en Chile."
   canonical="https://www.kumeraweb.cl/sitios-web"
 >
-  <main class="page page--service">
+  <main class="service-page">
     <!-- HERO -->
-    <section class="service-hero">
-      <div class="container">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Sitios Web</p>
         <h1>Sitios web profesionales que convierten</h1>
-        <p>
+        <p class="lead">
           Diseñamos sitios rápidos, claros y modernos para empresas que necesitan presencia digital
           real y resultados medibles.
         </p>
-        <CTA />
+
+        <a href={wa} class="btn-primary">Cotizar mi sitio</a>
+      </div>
+    </section>
+
+    <!-- CLIENTES -->
+    <section class="clients">
+      <div class="container">
+        <p class="clients-label">Hemos trabajado con</p>
+        <div class="clients-list">
+          <span>UCM</span>
+          <span>Estanques Pintué</span>
+          <span>UV Chile</span>
+          <span>Alonza</span>
+        </div>
       </div>
     </section>
 
     <!-- PROBLEMA -->
-    <section class="service-block">
+    <section class="problem">
       <div class="container">
         <h2>El problema</h2>
-        <p>
-          Muchos negocios tienen sitios lentos, confusos o desactualizados que no transmiten
-          confianza ni generan contactos reales.
+        <p class="muted">
+          Muchos negocios tienen sitios web que se ven bien, pero no generan contactos reales ni
+          transmiten confianza.
         </p>
+
+        <div class="problem-grid">
+          <div>
+            <h3>Lentos</h3>
+            <p>Si el sitio tarda en cargar, el usuario se va.</p>
+          </div>
+          <div>
+            <h3>Confusos</h3>
+            <p>Cuando no se entiende qué haces, no hay conversión.</p>
+          </div>
+          <div>
+            <h3>Sin foco</h3>
+            <p>Sin un CTA claro, el sitio no cumple su objetivo.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- SOLUCIÓN -->
-    <section class="service-block service-block--alt">
+    <section class="solution">
       <div class="container">
-        <h2>Nuestra solución</h2>
-        <ul class="service-list">
-          <li>Diseño moderno y minimalista</li>
-          <li>Optimización para velocidad y SEO</li>
-          <li>Experiencia clara en desktop y mobile</li>
-          <li>Enfoque en conversión y contacto</li>
-        </ul>
+        <h2>La solución</h2>
+        <p class="muted">
+          Diseñamos cada sitio como una herramienta de negocio, no como un simple diseño visual.
+        </p>
+
+        <div class="solution-steps">
+          <div>
+            <strong>Claridad</strong>
+            <span>Un mensaje directo que explica qué haces y por qué elegirte.</span>
+          </div>
+          <div>
+            <strong>Confianza</strong>
+            <span>Diseño limpio, estructura sólida y señales reales de credibilidad.</span>
+          </div>
+          <div>
+            <strong>Conversión</strong>
+            <span>CTAs visibles y un recorrido pensado para generar contactos.</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- PROCESO -->
-    <section class="service-block">
+    <!-- CIERRE -->
+    <section class="closing">
       <div class="container">
-        <h2>Cómo trabajamos</h2>
-        <ol class="service-steps">
-          <li>Análisis de tu negocio y objetivos</li>
-          <li>Diseño y estructura orientada a conversión</li>
-          <li>Desarrollo, optimización y publicación</li>
-        </ol>
-      </div>
-    </section>
+        <h2>Tu sitio web debe trabajar por ti</h2>
+        <p class="muted">
+          Si tu web hoy no genera oportunidades, está perdiendo valor. Lo solucionamos con una
+          propuesta clara y medible.
+        </p>
 
-    <!-- CTA FINAL -->
-    <section class="service-cta">
-      <div class="container">
-        <h2>¿Listo para mejorar tu sitio web?</h2>
-        <p>Conversemos sobre tu proyecto y veamos cómo ayudarte a crecer digitalmente.</p>
-        <CTA />
+        <a href={wa} class="btn-primary">Hablemos</a>
       </div>
     </section>
   </main>
+
+  <style>
+    .service-page {
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 6rem 0 5rem;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin: 1.25rem 0 2.5rem;
+      color: #374151;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      background: #0f172a;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary:hover {
+      background: #020617;
+    }
+
+    /* CLIENTES */
+    .clients {
+      border-top: 1px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 2.5rem 0;
+    }
+
+    .clients-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .clients-list {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-weight: 500;
+    }
+
+    /* PROBLEMA */
+    .problem {
+      padding: 5rem 0;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .problem-grid > div {
+      position: relative;
+      padding-top: 1.25rem;
+      border-top: 4px solid transparent;
+      transition: transform 0.4s ease;
+    }
+
+    .problem-grid > div::before {
+      content: 'K';
+      position: absolute;
+      top: -18px;
+      right: 0;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .problem-grid > div:nth-child(1) {
+      animation: highlightProblem 6s infinite;
+    }
+    .problem-grid > div:nth-child(2) {
+      animation: highlightProblem 6s infinite 2s;
+    }
+    .problem-grid > div:nth-child(3) {
+      animation: highlightProblem 6s infinite 4s;
+    }
+
+    @keyframes highlightProblem {
+      0% {
+        border-top-color: transparent;
+        transform: scale(1);
+      }
+      10% {
+        border-top-color: #0f172a;
+        transform: scale(1.02);
+      }
+      30% {
+        border-top-color: #0f172a;
+        transform: scale(1.02);
+      }
+      40% {
+        border-top-color: transparent;
+        transform: scale(1);
+      }
+    }
+
+    .problem-grid h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* SOLUCIÓN */
+    .solution {
+      background: #fafafa;
+      padding: 5rem 0;
+    }
+
+    .solution-steps {
+      margin-top: 3rem;
+      display: grid;
+      gap: 2.5rem;
+      max-width: 520px;
+    }
+
+    .solution-steps > div {
+      position: relative;
+      padding-left: 1rem;
+      border-left: 4px solid transparent;
+      transition: transform 0.4s ease;
+    }
+
+    .solution-steps > div::before {
+      content: 'K';
+      position: absolute;
+      left: -14px;
+      top: 0;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      opacity: 0;
+    }
+
+    .solution-steps > div:nth-child(1) {
+      animation: highlightSolution 6s infinite;
+    }
+    .solution-steps > div:nth-child(2) {
+      animation: highlightSolution 6s infinite 2s;
+    }
+    .solution-steps > div:nth-child(3) {
+      animation: highlightSolution 6s infinite 4s;
+    }
+
+    .solution-steps span {
+      display: block;
+      margin-top: 0.25rem;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    @keyframes highlightSolution {
+      0% {
+        border-left-color: transparent;
+        transform: translateX(0);
+      }
+      10% {
+        border-left-color: #0f172a;
+        transform: translateX(6px);
+      }
+      30% {
+        border-left-color: #0f172a;
+        transform: translateX(6px);
+      }
+      40% {
+        border-left-color: transparent;
+        transform: translateX(0);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .problem-grid > div,
+      .solution-steps > div {
+        animation: none;
+        transform: none;
+      }
+    }
+
+    /* CIERRE */
+    .closing {
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .closing .container {
+      max-width: 640px;
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    .muted {
+      color: #6b7280;
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </BaseLayout>

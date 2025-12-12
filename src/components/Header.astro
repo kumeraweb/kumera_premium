@@ -11,7 +11,7 @@ const { logoText = 'KÜMERA' } = Astro.props
     <nav class="km-nav" aria-label="Navegación principal">
       <ul class="km-nav-list">
         <li class="km-nav-item">
-          <a href="#estudio" class="km-nav-link">¿Qué hacemos?</a>
+          <a href="/#estudio" class="km-nav-link">¿Qué hacemos?</a>
         </li>
 
         <li class="km-nav-item km-nav-item-capabilities">
@@ -23,60 +23,40 @@ const { logoText = 'KÜMERA' } = Astro.props
           <div class="km-capabilities-panel">
             <div class="km-capabilities-inner">
               <div class="km-capabilities-col">
-                <div class="km-capability">
-                  <span class="km-capability-title">Branding &amp; Identidad</span>
-                  <span class="km-capability-desc"
-                    >Sistemas de marca claros, memorables y listos para escalar.</span
-                  >
-                </div>
+                <a href="/sitios-web" class="km-capability">
+                  <span class="km-capability-title">Sitios Web</span>
+                  <span class="km-capability-desc">
+                    Sitios y landing pages rápidas, claras y enfocadas en conversión.
+                  </span>
+                </a>
 
-                <div class="km-capability">
-                  <span class="km-capability-title">Sitios Web &amp; Landing Pages</span>
-                  <span class="km-capability-desc"
-                    >Performance, velocidad y foco total en conversión.</span
-                  >
-                </div>
+                <a href="/google-ads" class="km-capability">
+                  <span class="km-capability-title">Google Ads</span>
+                  <span class="km-capability-desc">
+                    Campañas optimizadas para generar demanda y clientes reales.
+                  </span>
+                </a>
 
-                <div class="km-capability">
+                <a href="/apps-moviles" class="km-capability">
                   <span class="km-capability-title">Apps Móviles</span>
-                  <span class="km-capability-desc"
-                    >React Native para iOS y Android, con una sola base de código.</span
-                  >
-                </div>
-              </div>
-
-              <div class="km-capabilities-col">
-                <div class="km-capability">
-                  <span class="km-capability-title">Sistemas &amp; Dashboards</span>
-                  <span class="km-capability-desc"
-                    >Herramientas internas y paneles que tu equipo quiere usar.</span
-                  >
-                </div>
-
-                <div class="km-capability">
-                  <span class="km-capability-title">Google Ads &amp; Performance</span>
-                  <span class="km-capability-desc"
-                    >Crecimiento basado en datos, no en suposiciones.</span
-                  >
-                </div>
-
-                <div class="km-capability">
-                  <span class="km-capability-title">Consultoría &amp; Acompañamiento</span>
-                  <span class="km-capability-desc"
-                    >Decisiones más claras, con un partner técnico y creativo.</span
-                  >
-                </div>
+                  <span class="km-capability-desc">
+                    Aplicaciones iOS y Android para escalar tu negocio o idea.
+                  </span>
+                </a>
               </div>
             </div>
           </div>
         </li>
 
         <li class="km-nav-item">
-          <a href="#proyectos" class="km-nav-link">Proyectos</a>
+          <a href="/#proyectos" class="km-nav-link">Proyectos</a>
         </li>
 
         <li class="km-nav-item">
           <a class="km-nav-link" style="opacity:0.35; pointer-events:none;">Journal</a>
+        </li>
+        <li class="km-nav-item">
+          <a href="/#contacto" class="km-nav-link km-nav-link-cta">Escríbenos</a>
         </li>
       </ul>
     </nav>
@@ -91,21 +71,19 @@ const { logoText = 'KÜMERA' } = Astro.props
   <div class="km-mobile-inner">
     <nav class="km-mobile-nav">
       <ul>
-        <li><a href="#estudio">¿Qué hacemos?</a></li>
+        <li><a href="/#estudio">¿Qué hacemos?</a></li>
 
         <a class="km-mobile-cap-label"> Servicios </a>
 
         <ul class="km-mobile-cap-list">
-          <li>Branding & Identidad</li>
-          <li>Sitios Web & Landing Pages</li>
-          <li>Apps Móviles</li>
-          <li>Sistemas & Dashboards</li>
-          <li>Google Ads & Performance</li>
-          <li>Consultoría & Acompañamiento</li>
+          <li><a href="/sitios-web">Sitios Web</a></li>
+          <li><a href="/google-ads">Google Ads</a></li>
+          <li><a href="/apps-moviles">Apps Móviles</a></li>
         </ul>
 
-        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="/#proyectos">Proyectos</a></li>
         <li><a style="opacity:0.35; pointer-events:none;">Journal</a></li>
+        <li><a href="/#contacto">Escríbenos</a></li>
       </ul>
 
       <a href="#contacto" class="km-mobile-cta">Hablemos</a>
@@ -260,6 +238,12 @@ const { logoText = 'KÜMERA' } = Astro.props
 
   .km-cta-link:hover {
     transform: translateX(4px);
+  }
+
+  .km-capability {
+    display: block;
+    text-decoration: none;
+    color: inherit;
   }
 
   .km-capabilities-panel {

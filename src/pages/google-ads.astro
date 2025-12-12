@@ -1,0 +1,346 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { contact } from '../data/site'
+
+const phone = contact.whatsapp.phone
+const message = encodeURIComponent(contact.whatsapp.messages.ads)
+const wa = `https://wa.me/${phone}?text=${message}`
+---
+
+<BaseLayout
+  title="Google Ads bien ejecutado | Kümera"
+  description="Google Ads funciona cuando se usa con intención, estructura y medición. Te ayudamos a invertir bien, no a gastar."
+  canonical="https://www.kumeraweb.cl/google-ads"
+>
+  <main class="ads-page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Google Ads</p>
+        <h1>Google Ads no es gastar dinero</h1>
+        <p class="lead">
+          Funciona cuando cada peso tiene una intención clara: visibilidad, contactos o ventas.
+        </p>
+
+        <a href={wa} class="btn-primary">Revisar mis campañas</a>
+      </div>
+    </section>
+
+    <!-- NO USAS ADS -->
+    <section class="block">
+      <div class="container two-cols">
+        <div>
+          <h2>¿No usas Google Ads?</h2>
+          <p class="muted">
+            Cuando alguien busca tu servicio en Google, ya tiene intención. Si no apareces ahí,
+            estás regalando clientes a tu competencia.
+          </p>
+        </div>
+
+        <div class="mockup">
+          <img src="/imgs/a.png" alt="Ejemplo anuncio Google Ads" />
+        </div>
+      </div>
+    </section>
+
+    <!-- USAS ADS PERO -->
+    <section class="block alt">
+      <div class="container">
+        <h2>¿Lo usas, pero…?</h2>
+        <p class="muted">Muchos negocios invierten en Google Ads sin una estructura clara.</p>
+
+        <div class="ads-problems">
+          <div>
+            <strong>1.240 clicks</strong>
+            <span>0 llamadas</span>
+          </div>
+          <div>
+            <strong>Alta impresión</strong>
+            <span>Baja intención</span>
+          </div>
+          <div>
+            <strong>Presupuesto activo</strong>
+            <span>Resultados confusos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ERROR COMUN -->
+    <section class="block">
+      <div class="container two-cols">
+        <div>
+          <h2>El error más común</h2>
+          <p class="muted">
+            Mezclar todo en una sola campaña: marca, servicios y objetivos distintos.
+          </p>
+          <p class="muted">Cuando todo compite entre sí, nada se potencia.</p>
+        </div>
+
+        <div class="mockup">
+          <img src="/imgs/c.png" alt="Ejemplo estructura incorrecta de campañas Google Ads" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUCION -->
+    <section class="block alt">
+      <div class="container">
+        <h2>La solución</h2>
+        <p class="muted">Google Ads debe reflejar la lógica de tu negocio.</p>
+
+        <div class="ads-solution">
+          <div>
+            <strong>Intención</strong>
+            <span>Cada campaña cumple un propósito claro.</span>
+          </div>
+          <div>
+            <strong>Estructura</strong>
+            <span>Marca, servicios y objetivos separados.</span>
+          </div>
+          <div>
+            <strong>Medición</strong>
+            <span>Clicks que se traducen en acciones reales.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="closing">
+      <div class="container">
+        <h2>Invertir bien es parte del crecimiento</h2>
+        <p class="muted">
+          Si estás invirtiendo —o piensas hacerlo— hagámoslo con criterio, datos y una estrategia
+          clara.
+        </p>
+
+        <a href={wa} class="btn-primary">Hablemos</a>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .ads-page {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 6rem 0 5rem;
+    }
+    .hero-inner {
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin: 1.25rem 0 2.5rem;
+      color: #374151;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      background: #0f172a;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary:hover {
+      background: #020617;
+    }
+
+    /* BLOQUES */
+    .block {
+      padding: 5rem 0;
+    }
+    .alt {
+      background: #fafafa;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .mockup {
+      border: 1px dashed #cbd5f5;
+      border-radius: 16px;
+      height: 260px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      min-height: 260px;
+    }
+
+    .mockup img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      max-width: 100%;
+    }
+
+    /* PROBLEMAS ADS */
+    .ads-problems {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .ads-problems > div {
+      position: relative;
+      padding-top: 1.25rem;
+      border-top: 4px solid transparent;
+      animation: adsProblem 6s infinite;
+    }
+
+    .ads-problems > div:nth-child(2) {
+      animation-delay: 2s;
+    }
+    .ads-problems > div:nth-child(3) {
+      animation-delay: 4s;
+    }
+
+    .ads-problems strong {
+      font-size: 1.1rem;
+    }
+
+    .ads-problems span {
+      display: block;
+      margin-top: 0.25rem;
+      color: #6b7280;
+    }
+
+    @keyframes adsProblem {
+      0% {
+        border-top-color: transparent;
+      }
+      10% {
+        border-top-color: #0f172a;
+      }
+      30% {
+        border-top-color: #0f172a;
+      }
+      40% {
+        border-top-color: transparent;
+      }
+    }
+
+    /* SOLUCION ADS */
+    .ads-solution {
+      margin-top: 3rem;
+      display: grid;
+      gap: 2.5rem;
+      max-width: 520px;
+    }
+
+    .ads-solution > div {
+      position: relative;
+      padding-left: 1rem;
+      border-left: 4px solid transparent;
+      animation: adsSolution 6s infinite;
+    }
+
+    .ads-solution > div:nth-child(2) {
+      animation-delay: 2s;
+    }
+    .ads-solution > div:nth-child(3) {
+      animation-delay: 4s;
+    }
+
+    .ads-solution span {
+      display: block;
+      margin-top: 0.25rem;
+      color: #6b7280;
+    }
+
+    @keyframes adsSolution {
+      0% {
+        border-left-color: transparent;
+      }
+      10% {
+        border-left-color: #0f172a;
+      }
+      30% {
+        border-left-color: #0f172a;
+      }
+      40% {
+        border-left-color: transparent;
+      }
+    }
+
+    /* CIERRE */
+    .closing {
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .closing .container {
+      max-width: 640px;
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    .muted {
+      color: #6b7280;
+    }
+
+    @media (max-width: 768px) {
+      .two-cols {
+        grid-template-columns: 1fr;
+      }
+      .ads-problems {
+        grid-template-columns: 1fr;
+      }
+      .mockup {
+        height: 220px;
+        max-width: 100%;
+      }
+      .container {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+    }
+    @media (max-width: 768px) {
+      main.ads-page {
+        overflow-x: hidden;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ads-problems > div,
+      .ads-solution > div {
+        animation: none;
+      }
+    }
+  </style>
+</BaseLayout>

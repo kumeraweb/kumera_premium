@@ -1,7 +1,9 @@
 ---
 import { MessageCircle } from '@lucide/astro'
-const phone = '+56994186218'
-const message = encodeURIComponent('Hola! Me gustaría hablar sobre un proyecto.')
+import { contact } from '../data/site'
+
+const phone = contact.whatsapp.phone
+const message = encodeURIComponent(contact.whatsapp.messages.default)
 const wa = `https://wa.me/${phone}?text=${message}`
 ---
 
