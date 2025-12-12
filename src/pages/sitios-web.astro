@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CTA from '../components/CTA.astro'
+---
+
+<BaseLayout
+  title="Sitios Web Profesionales en Chile | Kümera"
+  description="Diseñamos sitios web rápidos, modernos y orientados a conversión para empresas y pymes en Chile."
+  canonical="https://www.kumeraweb.cl/sitios-web"
+>
+  <main class="page page--service">
+    <!-- HERO -->
+    <section class="service-hero">
+      <div class="container">
+        <h1>Sitios web profesionales que convierten</h1>
+        <p>
+          Diseñamos sitios rápidos, claros y modernos para empresas que necesitan presencia digital
+          real y resultados medibles.
+        </p>
+        <CTA />
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="service-block">
+      <div class="container">
+        <h2>El problema</h2>
+        <p>
+          Muchos negocios tienen sitios lentos, confusos o desactualizados que no transmiten
+          confianza ni generan contactos reales.
+        </p>
+      </div>
+    </section>
+
+    <!-- SOLUCIÓN -->
+    <section class="service-block service-block--alt">
+      <div class="container">
+        <h2>Nuestra solución</h2>
+        <ul class="service-list">
+          <li>Diseño moderno y minimalista</li>
+          <li>Optimización para velocidad y SEO</li>
+          <li>Experiencia clara en desktop y mobile</li>
+          <li>Enfoque en conversión y contacto</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="service-block">
+      <div class="container">
+        <h2>Cómo trabajamos</h2>
+        <ol class="service-steps">
+          <li>Análisis de tu negocio y objetivos</li>
+          <li>Diseño y estructura orientada a conversión</li>
+          <li>Desarrollo, optimización y publicación</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="service-cta">
+      <div class="container">
+        <h2>¿Listo para mejorar tu sitio web?</h2>
+        <p>Conversemos sobre tu proyecto y veamos cómo ayudarte a crecer digitalmente.</p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
