@@ -10,7 +10,7 @@ const {
   title = SEO.defaultMeta.title,
   description = SEO.defaultMeta.description,
   canonical,
-  noindex = false,
+  noindex = false
 } = Astro.props
 
 const pageUrl = canonical ?? SEO.site.url + Astro.url.pathname
@@ -29,7 +29,6 @@ const pageUrl = canonical ?? SEO.site.url + Astro.url.pathname
     <link rel="canonical" href={pageUrl} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
-    <!-- Open Graph -->
     <meta property="og:type" content={SEO.openGraph.type} />
     <meta property="og:site_name" content={SEO.site.name} />
     <meta property="og:title" content={title} />
@@ -37,13 +36,11 @@ const pageUrl = canonical ?? SEO.site.url + Astro.url.pathname
     <meta property="og:url" content={pageUrl} />
     <meta property="og:image" content={SEO.openGraph.image} />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content={SEO.twitter.card} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={SEO.openGraph.image} />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
