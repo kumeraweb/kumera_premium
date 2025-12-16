@@ -42,6 +42,18 @@ const pageUrl = canonical ?? SEO.site.url + Astro.url.pathname
     <meta name="twitter:image" content={SEO.openGraph.image} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17742648816"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'AW-17742648816')
+    </script>
   </head>
   <body>
     <Header logoText="KÜMERA" />
