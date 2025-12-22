@@ -53,7 +53,7 @@ const { logoText = 'KÜMERA' } = Astro.props
         </li>
 
         <li class="km-nav-item">
-          <a class="km-nav-link" style="opacity:0.35; pointer-events:none;">Journal</a>
+          <a href="/acerca-de" class="km-nav-link km-nav-link-muted">Nosotros</a>
         </li>
         <li class="km-nav-item">
           <a href="/#contacto" class="km-nav-link km-nav-link-cta">Escríbenos</a>
@@ -73,8 +73,7 @@ const { logoText = 'KÜMERA' } = Astro.props
       <ul>
         <li><a href="/#estudio">¿Qué hacemos?</a></li>
 
-        <a class="km-mobile-cap-label"> Servicios </a>
-
+        <li class="km-mobile-cap-label">Servicios</li>
         <ul class="km-mobile-cap-list">
           <li><a href="/sitios-web">Sitios Web</a></li>
           <li><a href="/google-ads">Google Ads</a></li>
@@ -82,7 +81,7 @@ const { logoText = 'KÜMERA' } = Astro.props
         </ul>
 
         <li><a href="/#proyectos">Proyectos</a></li>
-        <li><a style="opacity:0.35; pointer-events:none;">Journal</a></li>
+        <li><a href="/acerca-de" class="km-mobile-muted">Nosotros</a></li>
         <li><a href="/#contacto">Escríbenos</a></li>
       </ul>
 
@@ -389,7 +388,9 @@ const { logoText = 'KÜMERA' } = Astro.props
   }
 
   .km-mobile-inner {
-    padding: 4rem 2rem;
+    padding: 5rem 2rem 4.5rem;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
   .km-mobile-nav ul {
@@ -398,25 +399,26 @@ const { logoText = 'KÜMERA' } = Astro.props
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.1rem;
   }
 
-  .km-mobile-nav a {
-    font-size: 1.7rem;
+  .km-mobile-nav > ul > li > a {
+    font-size: clamp(1.25rem, 4.5vw, 1.6rem);
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
-    text-decoration: none;
     color: #000;
+    text-decoration: none;
     display: block;
   }
 
   .km-mobile-cap-label {
     display: flex;
     align-items: center;
-    font-size: 1.7rem;
+    font-size: clamp(1.15rem, 4vw, 1.4rem);
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
-    gap: 0.2rem;
+    opacity: 0.85;
+    margin-top: 0.6rem;
   }
 
   .km-mobile-cap-dot {
@@ -431,10 +433,10 @@ const { logoText = 'KÜMERA' } = Astro.props
   }
 
   .km-mobile-cap-list li {
-    font-size: 0.85rem;
-    opacity: 0.8;
+    font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+    opacity: 0.65;
+    padding-left: 1.4rem;
     position: relative;
-    padding-left: 1.3rem;
   }
 
   .km-mobile-cap-list li::before {
@@ -442,10 +444,17 @@ const { logoText = 'KÜMERA' } = Astro.props
     position: absolute;
     left: 0;
     top: 0;
+    color: #000;
+    opacity: 0.4;
+  }
+
+  .km-mobile-cap-list li a {
+    color: #000;
+    text-decoration: none;
   }
 
   .km-mobile-cta {
-    margin-top: 3rem;
+    margin-top: 2.2rem;
     display: block;
     width: 100%;
     padding: 1rem 0;
@@ -453,6 +462,11 @@ const { logoText = 'KÜMERA' } = Astro.props
     border: 1px solid #111;
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    position: sticky;
+    bottom: 1.5rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
   }
 
   @media (max-width: 768px) {
@@ -484,6 +498,22 @@ const { logoText = 'KÜMERA' } = Astro.props
     /* Invert hamburger color when header is scrolled */
     .km-header.scrolled .km-mobile-toggle span {
       background: #fff;
+    }
+
+    .km-nav-link-muted {
+      opacity: 0.45;
+    }
+
+    .km-nav-link-muted::after {
+      display: none;
+    }
+
+    .km-nav-link-muted:hover {
+      opacity: 0.85;
+    }
+
+    .km-mobile-muted {
+      opacity: 0.55;
     }
   }
 </style>
