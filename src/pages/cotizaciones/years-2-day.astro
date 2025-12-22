@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+const ACCESS_KEY = 'year2day'
+const ISSUE_DATE = new Date('2025-12-22')
+const VALID_DAYS = 15
+---
+
+<BaseLayout
+  title="Cotización – Year2Day | Kümera"
+  description="Propuesta de diseño y desarrollo web preparada por Kümera para Year2Day."
+  canonical="https://www.kumeraweb.com/cotizacion/year2day"
+>
+  <main class="quote-page">
+    <!-- ACCESS OVERLAY -->
+    <div id="access-overlay" class="overlay">
+      <div class="overlay-card">
+        <p class="overlay-eyebrow">Propuesta privada</p>
+        <h1>Cotización Year2Day</h1>
+        <p class="overlay-text">
+          Esta propuesta fue preparada especialmente para su equipo.
+          <br />
+          Ingrese la clave de acceso para visualizarla.
+        </p>
+        <p id="expired-msg" class="error">Esta cotización ya no se encuentra disponible.</p>
+
+        <input id="access-input" type="password" placeholder="Clave de acceso" autocomplete="off" />
+        <button id="access-btn">Acceder</button>
+
+        <p id="access-error" class="error">Clave incorrecta</p>
+      </div>
+    </div>
+
+    <!-- QUOTATION CONTENT -->
+    <section id="quote-content" class="content blurred">
+      <section class="hero">
+        <p class="eyebrow">Cotización preliminar</p>
+        <h1>Diseño y desarrollo de sitio web institucional</h1>
+        <p class="lead">
+          Propuesta preparada por Kümera para el proyecto web de Year2Day, enfocada en una primera
+          versión operativa, clara y escalable.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Información general</h2>
+        <ul class="meta">
+          <li><strong>Cliente:</strong> Year2Day</li>
+          <li><strong>Contacto:</strong> Rebeca Abarzúa</li>
+          <li><strong>Proveedor:</strong> Kümera – Servicios Digitales</li>
+          <li><strong>Responsable:</strong> Paola Ramirez</li>
+          <li><strong>Fecha:</strong> 22 de Diciembre 2025</li>
+          <li><strong>Validez:</strong> 15 días</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Descripción del proyecto</h2>
+        <p>
+          El proyecto considera el diseño y desarrollo de un sitio web institucional que refleje la
+          identidad y valores de Year2Day, con un enfoque en usabilidad y accesibilidad para todos
+          los usuarios.
+        </p>
+        <p>
+          Se propone una solución a medida, sin uso de WordPress ni plantillas predefinidas, que
+          garantice un rendimiento óptimo, tiempos de carga rápidos y una arquitectura escalable
+          para futuras ampliaciones.
+        </p>
+        <p>
+          El diseño será responsivo, adaptándose perfectamente a dispositivos móviles y desktop,
+          asegurando una experiencia consistente y atractiva.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Alcance general</h2>
+        <ul>
+          <li>Sitio web institucional responsive (desktop y mobile)</li>
+          <li>Hasta 7 secciones / páginas</li>
+          <li>Diseño alineado a la identidad y lineamientos existentes</li>
+          <li>Desarrollo optimizado para carga rápida y estabilidad</li>
+          <li>Nivel básico de autoadministración para edición de textos e imágenes</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Etapas del proyecto</h2>
+
+        <div class="stage">
+          <h3>Etapa 1 – Diseño UX/UI</h3>
+          <ul>
+            <li>Levantamiento y bajada de contenidos</li>
+            <li>Arquitectura del sitio</li>
+            <li>Diseño UX/UI responsive (desktop y mobile)</li>
+            <li>Prototipo navegable</li>
+            <li>Hasta 2 rondas de ajustes</li>
+          </ul>
+          <p class="price">$200.000 CLP + IVA</p>
+        </div>
+
+        <div class="stage">
+          <h3>Etapa 2 – Desarrollo e implementación</h3>
+          <ul>
+            <li>Desarrollo web a medida sin uso de CMS tradicionales</li>
+            <li>Implementación de panel básico de autoadministración</li>
+            <li>Optimización para performance y SEO</li>
+            <li>Pruebas, publicación y soporte inicial</li>
+            <li>Plazo estimado: 3 a 4 semanas</li>
+          </ul>
+          <p class="price">$400.000 CLP + IVA</p>
+        </div>
+      </section>
+
+      <section class="block total">
+        <h2>Valor total del proyecto</h2>
+        <p class="total-price">$600.000 CLP + IVA</p>
+      </section>
+
+      <section class="block">
+        <h2>Condiciones y garantías</h2>
+        <ul>
+          <li>Desarrollo a medida (sin WordPress ni plantillas)</li>
+          <li>Diseño UX/UI personalizado</li>
+          <li>Sitio web autoadministrable a nivel básico</li>
+          <li>Optimización de carga y estructura</li>
+          <li>Publicación y acompañamiento inicial</li>
+          <li>
+            Garantía de 6 meses, que incluye:
+            <ul>
+              <li>Corrección de errores técnicos</li>
+              <li>Ajustes de funcionamiento</li>
+              <li>Correcciones básicas de diseño (no estructurales)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Autoadministración – explicación de uso</h2>
+        <ul>
+          <li>Panel simple e intuitivo</li>
+          <li>Edición de textos por sección</li>
+          <li>Reemplazo de imágenes</li>
+          <li>Mantención de contenido sin conocimientos técnicos</li>
+          <li>No incluye blog, usuarios múltiples ni flujos complejos</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Consideraciones importantes</h2>
+        <ul>
+          <li>El valor NO incluye hosting ni dominio</li>
+          <li>Servicios de bajo o nulo costo mensual son suficientes para este proyecto</li>
+          <li>Kümera puede apoyar en la configuración inicial si se requiere</li>
+          <li>Cambios de alcance o nuevas funcionalidades se cotizan aparte</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Modalidad de pago</h2>
+        <ul>
+          <li>50% Etapa 1 al inicio</li>
+          <li>50% Etapa 1 contra entrega de prototipo</li>
+          <li>50% Etapa 2 al inicio de desarrollo</li>
+          <li>50% Etapa 2 contra entrega y publicación</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <style>
+    .quote-page {
+      position: relative;
+      background: var(--color-bg);
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay-card {
+      background: #fff;
+      padding: 3rem;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .overlay-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .overlay-text {
+      margin: 1.2rem 0 2rem;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .overlay-card input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .overlay-card button {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--color-text);
+      color: var(--color-bg);
+      border: none;
+      cursor: pointer;
+    }
+
+    .error {
+      display: none;
+      color: #dc2626;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+    }
+
+    .blurred {
+      filter: blur(10px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero {
+      margin-bottom: 4rem;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      color: var(--color-muted);
+    }
+
+    .lead {
+      margin-top: 1rem;
+      max-width: 520px;
+      color: #374151;
+    }
+
+    .block {
+      margin-bottom: 3rem;
+    }
+
+    .meta {
+      list-style: none;
+      padding: 0;
+    }
+
+    .meta li {
+      margin-bottom: 0.5rem;
+    }
+
+    .stage {
+      border-left: 4px solid var(--color-text);
+      padding-left: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .price {
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .total {
+      background: #fafafa;
+      padding: 2.5rem;
+      border-radius: 12px;
+    }
+
+    .total-price {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  </style>
+
+  <script is:inline>
+    const btn = document.getElementById('access-btn')
+    const input = document.getElementById('access-input')
+    const overlay = document.getElementById('access-overlay')
+    const content = document.getElementById('quote-content')
+    const error = document.getElementById('access-error')
+    const expiredMsg = document.getElementById('expired-msg')
+
+    const issuedAt = new Date('2025-12-22')
+    const expiresAt = new Date(issuedAt)
+    expiresAt.setDate(expiresAt.getDate() + 15)
+    const now = new Date()
+    const isExpired = now > expiresAt
+
+    btn.addEventListener('click', unlock)
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') unlock()
+    })
+
+    function unlock() {
+      if (isExpired) {
+        input.style.display = 'none'
+        btn.style.display = 'none'
+        expiredMsg.style.display = 'block'
+        error.style.display = 'none'
+        return
+      }
+      if (input.value === 'year2day') {
+        overlay.style.display = 'none'
+        content.classList.remove('blurred')
+      } else {
+        error.style.display = 'block'
+      }
+    }
+  </script>
+</BaseLayout>
