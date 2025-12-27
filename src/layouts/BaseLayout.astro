@@ -27,6 +27,7 @@ const pageUrl = canonical ?? SEO.site.url + Astro.url.pathname
     <meta name="theme-color" content={SEO.site.themeColor} />
 
     <link rel="canonical" href={pageUrl} />
+    <!-- noindex is opt-in only, never default -->
     {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <meta property="og:type" content={SEO.openGraph.type} />
@@ -34,14 +35,17 @@ const pageUrl = canonical ?? SEO.site.url + Astro.url.pathname
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageUrl} />
-    <meta property="og:image" content={SEO.openGraph.image} />
+    <meta property="og:image" content={`${SEO.site.url}${SEO.openGraph.image}`} />
 
     <meta name="twitter:card" content={SEO.twitter.card} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={SEO.openGraph.image} />
 
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17742648816"></script>
