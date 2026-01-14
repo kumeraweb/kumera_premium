@@ -7,40 +7,42 @@
         Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas.
       </p>
 
-      <form class="contact-form reveal-on-scroll" method="POST" action="/api/contact">
-        <div class="field-group">
-          <label>Nombre</label>
-          <input name="nombre" type="text" placeholder="Tu nombre" />
-          <p class="field-error" data-error-for="nombre"></p>
+      <div class="contact-stage">
+        <form class="contact-form reveal-on-scroll" method="POST" action="/api/contact">
+          <div class="field-group">
+            <label>Nombre</label>
+            <input name="nombre" type="text" placeholder="Tu nombre" />
+            <p class="field-error" data-error-for="nombre"></p>
+          </div>
+
+          <div class="field-group">
+            <label>Email</label>
+            <input name="email" type="text" placeholder="tu@email.com" />
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+
+          <div class="field-group">
+            <label>Tipo de proyecto <span class="optional">(opcional)</span></label>
+            <input name="tipo" type="text" placeholder="Sitio Web, App, Google Ads…" />
+          </div>
+
+          <div class="field-group">
+            <label>Mensaje <span class="optional">(opcional)</span></label>
+            <textarea name="mensaje" placeholder="Cuéntanos brevemente en qué puedo ayudarte"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="contact-submit"> Enviar mensaje → </button>
+          <p class="contact-status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-success">
+          <h3>Mensaje enviado</h3>
+          <p>
+            Gracias por escribirnos. En Kümera revisamos cada proyecto con atención y te
+            responderemos muy pronto.
+          </p>
         </div>
-
-        <div class="field-group">
-          <label>Email</label>
-          <input name="email" type="text" placeholder="tu@email.com" />
-          <p class="field-error" data-error-for="email"></p>
-        </div>
-
-        <div class="field-group">
-          <label>Tipo de proyecto <span class="optional">(opcional)</span></label>
-          <input name="tipo" type="text" placeholder="Sitio Web, App, Google Ads…" />
-        </div>
-
-        <div class="field-group">
-          <label>Mensaje <span class="optional">(opcional)</span></label>
-          <textarea name="mensaje" placeholder="Cuéntanos brevemente en qué puedo ayudarte"
-          ></textarea>
-        </div>
-
-        <button type="submit" class="contact-submit"> Enviar mensaje → </button>
-        <p class="contact-status" aria-live="polite"></p>
-      </form>
-
-      <div class="contact-success" hidden>
-        <h3>Mensaje enviado</h3>
-        <p>
-          Gracias por escribirnos. En Kümera revisamos cada proyecto con atención y te responderemos
-          muy pronto.
-        </p>
       </div>
     </div>
 
@@ -297,6 +299,45 @@
     opacity: 0.55;
     font-weight: 400;
   }
+
+  /* Animación slide profesional */
+  .contact-stage {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-form,
+  .contact-success {
+    transition:
+      transform 0.6s ease,
+      opacity 0.4s ease;
+  }
+
+  .contact-form {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .contact-success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-40px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .contact-stage.success .contact-form {
+    transform: translateX(40px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .contact-stage.success .contact-success {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
 </style>
 <script is:inline>
   const form = document.querySelector('.contact-form')
@@ -371,8 +412,8 @@
         })
 
         if (response.ok) {
-          form.setAttribute('hidden', 'true')
-          document.querySelector('.contact-success').removeAttribute('hidden')
+          const stage = document.querySelector('.contact-stage')
+          stage.classList.add('success')
         } else {
           submitButton.disabled = false
           submitButton.textContent = originalText
