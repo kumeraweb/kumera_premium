@@ -15,7 +15,19 @@
 
         <div class="field-group">
           <label>Email</label>
-          <input name="email" type="email" placeholder="tu@email.com" required />
+          <input
+            name="email"
+            type="email"
+            placeholder="tu@email.com"
+            required
+            pattern="^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$"
+            title="Ingresa un email válido, por ejemplo nombre@dominio.com"
+          />
+        </div>
+
+        <div class="field-group">
+          <label>Confirmar Email</label>
+          <input name="email_confirm" type="email" placeholder="Repite tu email" required />
         </div>
 
         <div class="field-group">
@@ -243,6 +255,38 @@
 
   if (form) {
     form.addEventListener('submit', async (event) => {
+      const email = form.querySelector('input[name="email"]')?.value.trim()
+      const emailConfirm = form.querySelector('input[name="email_confirm"]')?.value.trim()
+
+      if (email !== emailConfirm) {
+        if (statusEl) {
+          statusEl.textContent = 'Los correos no coinciden. Revisa e inténtalo nuevamente.'
+          statusEl.classList.add('error')
+        }
+
+        if (submitButton) {
+          submitButton.disabled = false
+          submitButton.textContent = originalText
+        }
+
+        return
+      }
+
+      const nombre = form.querySelector('input[name="nombre"]')?.value.trim()
+
+      if (!nombre || nombre.length < 2) {
+        if (statusEl) {
+          statusEl.textContent = 'Por favor ingresa un nombre válido.'
+          statusEl.classList.add('error')
+        }
+
+        if (submitButton) {
+          submitButton.disabled = false
+          submitButton.textContent = originalText
+        }
+
+        return
+      }
       event.preventDefault()
 
       const submitButton = form.querySelector('.contact-submit')
