@@ -10,33 +10,23 @@
       <form class="contact-form reveal-on-scroll" method="POST" action="/api/contact">
         <div class="field-group">
           <label>Nombre</label>
-          <input name="nombre" type="text" placeholder="Tu nombre" required />
+          <input name="nombre" type="text" placeholder="Tu nombre" />
+          <p class="field-error" data-error-for="nombre"></p>
         </div>
 
         <div class="field-group">
           <label>Email</label>
-          <input
-            name="email"
-            type="email"
-            placeholder="tu@email.com"
-            required
-            pattern="^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$"
-            title="Ingresa un email válido, por ejemplo nombre@dominio.com"
-          />
+          <input name="email" type="text" placeholder="tu@email.com" />
+          <p class="field-error" data-error-for="email"></p>
         </div>
 
         <div class="field-group">
-          <label>Confirmar Email</label>
-          <input name="email_confirm" type="email" placeholder="Repite tu email" required />
-        </div>
-
-        <div class="field-group">
-          <label>Tipo de proyecto</label>
+          <label>Tipo de proyecto <span class="optional">(opcional)</span></label>
           <input name="tipo" type="text" placeholder="Sitio Web, App, Google Ads…" />
         </div>
 
         <div class="field-group">
-          <label>Mensaje</label>
+          <label>Mensaje <span class="optional">(opcional)</span></label>
           <textarea name="mensaje" placeholder="Cuéntanos brevemente en qué puedo ayudarte"
           ></textarea>
         </div>
@@ -44,6 +34,14 @@
         <button type="submit" class="contact-submit"> Enviar mensaje → </button>
         <p class="contact-status" aria-live="polite"></p>
       </form>
+
+      <div class="contact-success" hidden>
+        <h3>Mensaje enviado</h3>
+        <p>
+          Gracias por escribirnos. En Kümera revisamos cada proyecto con atención y te responderemos
+          muy pronto.
+        </p>
+      </div>
     </div>
 
     <div class="cta-pattern" aria-hidden="true">
@@ -248,6 +246,57 @@
       display: none;
     }
   }
+
+  .field-error {
+    font-size: 0.85rem;
+    color: #b91c1c;
+    min-height: 1em;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .field-error.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .contact-success {
+    max-width: 520px;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.03);
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .contact-success h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .contact-success p {
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .optional {
+    font-size: 0.8rem;
+    opacity: 0.55;
+    font-weight: 400;
+  }
 </style>
 <script is:inline>
   const form = document.querySelector('.contact-form')
@@ -255,52 +304,64 @@
 
   if (form) {
     form.addEventListener('submit', async (event) => {
-      const email = form.querySelector('input[name="email"]')?.value.trim()
-      const emailConfirm = form.querySelector('input[name="email_confirm"]')?.value.trim()
-
-      if (email !== emailConfirm) {
-        if (statusEl) {
-          statusEl.textContent = 'Los correos no coinciden. Revisa e inténtalo nuevamente.'
-          statusEl.classList.add('error')
-        }
-
-        if (submitButton) {
-          submitButton.disabled = false
-          submitButton.textContent = originalText
-        }
-
-        return
-      }
-
-      const nombre = form.querySelector('input[name="nombre"]')?.value.trim()
-
-      if (!nombre || nombre.length < 2) {
-        if (statusEl) {
-          statusEl.textContent = 'Por favor ingresa un nombre válido.'
-          statusEl.classList.add('error')
-        }
-
-        if (submitButton) {
-          submitButton.disabled = false
-          submitButton.textContent = originalText
-        }
-
-        return
-      }
       event.preventDefault()
 
       const submitButton = form.querySelector('.contact-submit')
-      const originalText = submitButton?.textContent || 'Enviar mensaje →'
+      const originalText = submitButton.textContent
 
-      if (statusEl) {
-        statusEl.textContent = ''
-        statusEl.classList.remove('success', 'error')
+      const nombreInput = form.querySelector('input[name="nombre"]')
+      const emailInput = form.querySelector('input[name="email"]')
+
+      const nombreError = form.querySelector('[data-error-for="nombre"]')
+      const emailError = form.querySelector('[data-error-for="email"]')
+
+      const clearErrors = () => {
+        ;[nombreError, emailError].forEach((el) => {
+          el.textContent = ''
+          el.classList.remove('visible')
+        })
       }
 
-      if (submitButton) {
-        submitButton.disabled = true
-        submitButton.textContent = 'Enviando...'
+      clearErrors()
+
+      let hasError = false
+
+      const nombre = nombreInput.value.trim()
+      if (nombre.length < 2) {
+        nombreError.textContent = '¿Podrías indicarnos tu nombre?'
+        nombreError.classList.add('visible')
+        hasError = true
       }
+
+      const email = emailInput.value.trim().toLowerCase()
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+
+      if (!emailRegex.test(email)) {
+        emailError.textContent = 'Revisa el formato del email.'
+        emailError.classList.add('visible')
+        hasError = true
+      } else {
+        const commonTypos = {
+          'gmiil.com': 'gmail.com',
+          'gmial.com': 'gmail.com',
+          'gmaill.com': 'gmail.com',
+          'hotmial.com': 'hotmail.com',
+          'hotmil.com': 'hotmail.com',
+          'outlok.com': 'outlook.com'
+        }
+
+        const domain = email.split('@')[1]
+        if (commonTypos[domain]) {
+          emailError.textContent = `¿Quisiste decir ${email.split('@')[0]}@${commonTypos[domain]}?`
+          emailError.classList.add('visible')
+          hasError = true
+        }
+      }
+
+      if (hasError) return
+
+      submitButton.disabled = true
+      submitButton.textContent = 'Enviando...'
 
       try {
         const formData = new FormData(form)
@@ -310,28 +371,15 @@
         })
 
         if (response.ok) {
-          form.reset()
-          if (statusEl) {
-            statusEl.textContent = 'Gracias, hemos recibido tu mensaje.'
-            statusEl.classList.add('success')
-          }
+          form.setAttribute('hidden', 'true')
+          document.querySelector('.contact-success').removeAttribute('hidden')
         } else {
-          if (statusEl) {
-            statusEl.textContent = 'Hubo un problema al enviar tu mensaje. Inténtalo nuevamente.'
-            statusEl.classList.add('error')
-          }
-        }
-      } catch (error) {
-        if (statusEl) {
-          statusEl.textContent =
-            'No pudimos enviar tu mensaje. Revisa tu conexión e inténtalo de nuevo.'
-          statusEl.classList.add('error')
-        }
-      } finally {
-        if (submitButton) {
           submitButton.disabled = false
           submitButton.textContent = originalText
         }
+      } catch {
+        submitButton.disabled = false
+        submitButton.textContent = originalText
       }
     })
   }
