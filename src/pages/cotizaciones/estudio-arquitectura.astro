@@ -1,0 +1,315 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+// ===== CONFIGURACIÓN =====
+const ACCESS_KEY = 'arquitectura2026'
+const ISSUE_DATE = new Date('2026-01-16')
+const VALID_DAYS = 15
+
+const clientName = 'Estudio de Arquitectura'
+const projectName = 'Sitio web institucional'
+
+const formatDateCL = (d: Date) =>
+  d.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })
+
+const expiresAt = new Date(ISSUE_DATE)
+expiresAt.setDate(expiresAt.getDate() + VALID_DAYS)
+---
+
+<BaseLayout
+  title={`Cotización – ${clientName} | Kümera`}
+  description="Propuesta de diseño y desarrollo web preparada por Kümera para un estudio de arquitectura."
+  canonical="https://www.kumeraweb.com/cotizaciones/estudio-arquitectura"
+>
+  <main class="quote-page">
+    <!-- ACCESS OVERLAY -->
+    <div id="access-overlay" class="overlay">
+      <div class="overlay-card">
+        <p class="overlay-eyebrow">Propuesta privada</p>
+        <h1>Cotización – {clientName}</h1>
+        <p class="overlay-text">
+          Esta propuesta fue preparada especialmente para su proyecto.
+          <br />Ingrese la clave de acceso para visualizarla.
+        </p>
+
+        <p id="expired-msg" class="error">Esta cotización ya no se encuentra disponible.</p>
+
+        <input id="access-input" type="password" placeholder="Clave de acceso" autocomplete="off" />
+        <button id="access-btn">Acceder</button>
+
+        <p id="access-error" class="error">Clave incorrecta</p>
+      </div>
+    </div>
+
+    <!-- CONTENIDO COTIZACIÓN -->
+    <section id="quote-content" class="content blurred">
+      <section class="hero">
+        <p class="eyebrow">Cotización preliminar</p>
+        <h1>Diseño y desarrollo de sitio web para estudio de arquitectura</h1>
+        <p class="lead">
+          Propuesta para el desarrollo de un sitio web informativo, simple y minimalista, enfocado
+          en la exhibición de proyectos y contacto.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Información general</h2>
+        <ul class="meta">
+          <li><strong>Cliente:</strong> {clientName}</li>
+          <li><strong>Proyecto:</strong> {projectName}</li>
+          <li><strong>Proveedor:</strong> Kümera – Servicios Digitales</li>
+          <li><strong>Fecha de emisión:</strong> {formatDateCL(ISSUE_DATE)}</li>
+          <li><strong>Validez:</strong> {VALID_DAYS} días (hasta {formatDateCL(expiresAt)})</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Alcance del proyecto</h2>
+        <ul>
+          <li>Sitio web responsive (desktop y mobile)</li>
+          <li>Hasta <strong>4 secciones</strong>: Inicio, Proyectos, Nosotros y Contacto</li>
+          <li>Diseño visual minimalista alineado a la referencia compartida</li>
+          <li>
+            Sección <strong>Proyectos</strong> autoadministrable con:
+            <ul>
+              <li>Imágenes</li>
+              <li>Descripción breve</li>
+              <li>Ubicación</li>
+              <li>Año</li>
+              <li>Categoría</li>
+              <li>Metros cuadrados</li>
+            </ul>
+          </li>
+          <li>Panel simple para subir y editar proyectos</li>
+          <li>Publicación del sitio y configuración inicial</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Proceso de trabajo</h2>
+        <ol>
+          <li>Diseño del template base (estructura, tipografías y paleta de colores)</li>
+          <li>Revisión y ajustes (hasta 2 rondas)</li>
+          <li>Implementación final y carga de proyectos iniciales</li>
+          <li>Publicación del sitio</li>
+        </ol>
+      </section>
+
+      <section class="block">
+        <h2>Dominio y hosting</h2>
+        <p>
+          Esta propuesta <strong>incluye hosting básico</strong>, suficiente para el correcto
+          funcionamiento y rendimiento del sitio web.
+        </p>
+        <p>
+          El servicio de hosting <strong>no incluye correos corporativos</strong>.
+        </p>
+        <p>
+          La propuesta <strong>incluye un dominio por 1 año</strong>, gestionado por Kümera.
+        </p>
+        <p>
+          En caso de requerir correos corporativos (ej: contacto@tudominio.cl), deben indicarlo para
+          cotizar la mejor alternativa disponible a bajo costo. Este servicio corresponde a un <strong
+            >costo anual</strong
+          > asociado a un proveedor externo.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Plazo estimado</h2>
+        <p><strong>7 a 10 días hábiles</strong> desde la aprobación del diseño inicial.</p>
+      </section>
+
+      <section class="block total">
+        <h2>Valor total del proyecto</h2>
+        <p class="total-price">$110.000 CLP</p>
+        <p class="muted">
+          Incluye hosting básico y dominio por 1 año. No incluye correos corporativos.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Forma de pago</h2>
+        <ul>
+          <li>50% al iniciar el proyecto</li>
+          <li>50% contra entrega y publicación</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Consideraciones</h2>
+        <ul>
+          <li>La propuesta considera únicamente el alcance descrito.</li>
+          <li>Cambios o funcionalidades adicionales se cotizan aparte.</li>
+          <li>Incluye acompañamiento inicial post-publicación para ajustes menores.</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <style>
+    .quote-page {
+      background: var(--color-bg);
+      min-height: 100vh;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 1.5rem;
+    }
+
+    .overlay-card {
+      background: #fff;
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .overlay-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .overlay-text {
+      color: #374151;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .overlay-card input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .overlay-card button {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 10px;
+      background: var(--color-text);
+      color: var(--color-bg);
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .error {
+      display: none;
+      color: #dc2626;
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+    }
+    .blurred {
+      filter: blur(10px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero {
+      margin-bottom: 3rem;
+    }
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+    .lead {
+      margin-top: 1rem;
+      max-width: 620px;
+      color: #374151;
+    }
+
+    .block {
+      margin-bottom: 2.5rem;
+    }
+    .meta {
+      list-style: none;
+      padding: 0;
+    }
+    .meta li {
+      margin-bottom: 0.5rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.25rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .total {
+      background: #fafafa;
+      padding: 2.25rem;
+      border-radius: 12px;
+    }
+    .total-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-top: 0.75rem;
+    }
+    .muted {
+      color: #6b7280;
+      margin-top: 0.5rem;
+    }
+  </style>
+
+  <script is:inline>
+    const btn = document.getElementById('access-btn')
+    const input = document.getElementById('access-input')
+    const overlay = document.getElementById('access-overlay')
+    const content = document.getElementById('quote-content')
+    const error = document.getElementById('access-error')
+    const expiredMsg = document.getElementById('expired-msg')
+
+    const issuedAt = new Date('2026-01-16')
+    const expiresAt = new Date(issuedAt)
+    expiresAt.setDate(expiresAt.getDate() + 15)
+
+    const isExpired = new Date() > expiresAt
+
+    btn.addEventListener('click', unlock)
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') unlock()
+    })
+
+    function unlock() {
+      if (isExpired) {
+        input.style.display = 'none'
+        btn.style.display = 'none'
+        expiredMsg.style.display = 'block'
+        return
+      }
+      if (input.value === 'arquitectura2026') {
+        overlay.style.display = 'none'
+        content.classList.remove('blurred')
+      } else {
+        error.style.display = 'block'
+      }
+    }
+  </script>
+</BaseLayout>
