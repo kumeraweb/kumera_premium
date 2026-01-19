@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+// ===== CONFIGURACIÓN =====
+const ACCESS_KEY = 'spa2026'
+const ISSUE_DATE = new Date('2026-01-17')
+const VALID_DAYS = 15
+
+const clientName = 'Casa Spa – San Pedro de la Paz'
+const projectName = 'Sitio web y campañas Google Ads'
+
+const formatDateCL = (d: any) =>
+  d.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })
+
+const expiresAt = new Date(ISSUE_DATE)
+expiresAt.setDate(expiresAt.getDate() + VALID_DAYS)
+---
+
+<BaseLayout
+  title={`Cotización – Casa Spa San Pedro | Kümera`}
+  description="Propuesta de sitio web y campañas Google Ads preparada por Kümera para Casa Spa San Pedro de la Paz."
+  canonical="https://www.kumeraweb.com/cotizaciones/spa-sanpedro"
+>
+  <main class="quote-page">
+    <!-- ACCESS OVERLAY -->
+    <div id="access-overlay" class="overlay">
+      <div class="overlay-card">
+        <p class="overlay-eyebrow">Propuesta privada</p>
+        <h1>Cotización – {clientName}</h1>
+        <p class="overlay-text">
+          Esta propuesta fue preparada especialmente para su proyecto.
+          <br />Ingrese la clave de acceso para visualizarla.
+        </p>
+
+        <p id="expired-msg" class="error">Esta cotización ya no se encuentra disponible.</p>
+
+        <input id="access-input" type="password" placeholder="Clave de acceso" autocomplete="off" />
+        <button id="access-btn">Acceder</button>
+
+        <p id="access-error" class="error">Clave incorrecta</p>
+      </div>
+    </div>
+
+    <!-- CONTENIDO COTIZACIÓN -->
+    <section id="quote-content" class="content blurred">
+      <section class="hero">
+        <p class="eyebrow">Cotización preliminar</p>
+        <h1>Diseño de sitio web y Google Ads para casa-spa</h1>
+        <p class="lead">
+          Propuesta enfocada en arriendos diarios, con formulario de contacto, enlace a Booking y
+          Google Ads como canal principal de captación.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Información general</h2>
+        <ul class="meta">
+          <li><strong>Cliente:</strong> {clientName}</li>
+          <li><strong>Proyecto:</strong> {projectName}</li>
+          <li><strong>Proveedor:</strong> Kümera – Servicios Digitales</li>
+          <li><strong>Fecha de emisión:</strong> {formatDateCL(ISSUE_DATE)}</li>
+          <li>
+            <strong>Validez:</strong>
+            {VALID_DAYS} días (hasta {formatDateCL(expiresAt)})
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Alcance del proyecto</h2>
+        <ul>
+          <li>Sitio web responsive (desktop y mobile)</li>
+          <li>
+            Hasta <strong>5 secciones</strong>: Inicio, Experiencia, Galería, Ubicación y Contacto
+          </li>
+          <li>Formulario de contacto</li>
+          <li>Enlace directo a Booking</li>
+          <li>Optimización básica para conversión</li>
+          <li>Dominio + hosting por 1 año</li>
+          <li>Primer mes de administración del sitio incluido</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Multidioma (opcional)</h2>
+        <ul>
+          <li>Idiomas adicionales: Inglés y Alemán</li>
+          <li>Valor: $25.000 + IVA</li>
+          <li>Pago único</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Google Ads</h2>
+        <ul>
+          <li>Administración de campañas</li>
+          <li>Reporte semanal</li>
+          <li>Ajustes al sitio web y mantención general</li>
+          <li>Presupuesto publicitario no incluido</li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Plazo estimado</h2>
+        <p><strong>Máximo 5 días hábiles</strong> desde la contratación.</p>
+      </section>
+
+      <section class="block total">
+        <h2>Valor total del proyecto – Sitio web</h2>
+        <p class="total-price">$125.000 + IVA</p>
+        <p class="muted">Pago único. Incluye dominio, hosting y primer mes de administración.</p>
+      </section>
+
+      <section class="block total">
+        <h2>Valor Multidioma</h2>
+        <p class="total-price">$25.000 + IVA</p>
+        <p class="muted">Pago único.</p>
+      </section>
+
+      <section class="block total">
+        <h2>Valor administracion mensual – Google Ads y Sitio Web</h2>
+        <p class="total-price">$30.000 + IVA mensual</p>
+        <p class="muted">
+          Administración de campañas, envío de reportes semanales y optimización continua del sitio
+          web. Inversión publicitaria no incluida.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Forma de pago</h2>
+        <ul>
+          <li>Sitio web: 50% al iniciar – 50% previo a publicación</li>
+          <li>
+            Google Ads: incluido el primer mes, luego $30.000 + iva mensual a partir del segundo mes
+          </li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>Consideraciones</h2>
+        <ul>
+          <li>La propuesta considera únicamente el alcance descrito.</li>
+          <li>No incluye community management ni gestión de redes sociales</li>
+          <li>No incluye material audiovisual; este debe ser provisto por el cliente.</li>
+          Cambios o funcionalidades adicionales se cotizan aparte como sistemas de pago o reservas, chat
+          en vivo etc.
+        </ul>
+      </section>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .quote-page {
+    background: var(--color-bg);
+    min-height: 100vh;
+  }
+
+  /* OVERLAY */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 1.5rem;
+  }
+
+  .overlay-card {
+    background: #fff;
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  .overlay-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .overlay-text {
+    color: #374151;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .overlay-card input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .overlay-card button {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .error {
+    display: none;
+    color: #dc2626;
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem;
+  }
+
+  .blurred {
+    filter: blur(10px);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero {
+    margin-bottom: 3rem;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .lead {
+    margin-top: 1rem;
+    max-width: 620px;
+    color: #374151;
+  }
+
+  .block {
+    margin-bottom: 2.5rem;
+  }
+
+  .meta {
+    list-style: none;
+    padding: 0;
+  }
+
+  .meta li {
+    margin-bottom: 0.5rem;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.25rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .total {
+    background: #fafafa;
+    padding: 2.25rem;
+    border-radius: 12px;
+  }
+
+  .total-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-top: 0.75rem;
+  }
+
+  .muted {
+    color: #6b7280;
+    margin-top: 0.5rem;
+  }
+</style>
+
+<script is:inline>
+  const btn = document.getElementById('access-btn')
+  const input = document.getElementById('access-input')
+  const overlay = document.getElementById('access-overlay')
+  const content = document.getElementById('quote-content')
+  const error = document.getElementById('access-error')
+  const expiredMsg = document.getElementById('expired-msg')
+
+  const issuedAt = new Date('2026-01-17')
+  const expiresAt = new Date(issuedAt)
+  expiresAt.setDate(expiresAt.getDate() + 15)
+
+  const isExpired = new Date() > expiresAt
+
+  btn.addEventListener('click', unlock)
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') unlock()
+  })
+
+  function unlock() {
+    if (isExpired) {
+      input.style.display = 'none'
+      btn.style.display = 'none'
+      expiredMsg.style.display = 'block'
+      return
+    }
+
+    if (input.value === 'spa2026') {
+      overlay.style.display = 'none'
+      content.classList.remove('blurred')
+    } else {
+      error.style.display = 'block'
+    }
+  }
+</script>
