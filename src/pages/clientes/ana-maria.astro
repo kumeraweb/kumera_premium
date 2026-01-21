@@ -1,0 +1,264 @@
+---
+/**
+ * CONTROL ÚNICO DE AVANCE
+ * Cambia SOLO este número para avanzar el proyecto.
+ * (índice basado en 0)
+ */
+const CURRENT_STAGE: number = 1
+
+/**
+ * Definición de etapas estándar Kümera
+ */
+const STEPS = [
+  'Inicio del proyecto',
+  'Diseño web',
+  'Revisión diseño v1',
+  'Ajustes post revisión',
+  'Diseño final aprobado',
+  'Desarrollo del sitio',
+  'Publicación en hosting y dominio',
+  'Configuración Google Ads',
+  'Capacitación y entrega final'
+]
+
+const project = {
+  client: 'Ana María',
+  title: 'Sitio web institucional – Estudio Jurídico',
+  description:
+    'Diseño y desarrollo de sitio web profesional orientado a captación de clientes y posicionamiento en Google.',
+  steps: STEPS,
+  currentStep: CURRENT_STAGE,
+  status: CURRENT_STAGE < STEPS.length - 1 ? 'En progreso' : 'Finalizado',
+  lastUpdate: '2026-01-20',
+  nextAction:
+    CURRENT_STAGE === 2 ? 'Revisión del diseño v1 y envío de observaciones' : 'En ejecución'
+}
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{project.title} | Kümera</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #020617;
+        --muted: #94a3b8;
+        --text: #e5e7eb;
+        --accent: #22c55e;
+        --accent-soft: rgba(34, 197, 94, 0.15);
+        --border: rgba(148, 163, 184, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+        background: linear-gradient(180deg, #020617, #0f172a);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 48px 20px 80px;
+      }
+
+      header {
+        margin-bottom: 32px;
+      }
+
+      .badge {
+        display: inline-block;
+        background: var(--accent-soft);
+        color: var(--accent);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 32px;
+        line-height: 1.2;
+      }
+
+      p {
+        color: var(--muted);
+        max-width: 720px;
+        margin: 0;
+      }
+
+      .card {
+        background: rgba(2, 6, 23, 0.85);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        margin-top: 32px;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .meta-item span {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .meta-item strong {
+        font-size: 14px;
+      }
+
+      .steps {
+        margin-top: 32px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .step {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.6);
+      }
+
+      .step.active {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .step.done {
+        opacity: 0.7;
+      }
+
+      .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        margin-top: 4px;
+        background: var(--border);
+        flex-shrink: 0;
+      }
+
+      .step.done .dot {
+        background: var(--accent);
+      }
+
+      .step.active .dot {
+        background: var(--accent);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+      }
+
+      .step-content {
+        font-size: 14px;
+      }
+
+      .step-content small {
+        color: var(--muted);
+        display: block;
+        margin-top: 4px;
+      }
+
+      footer {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <span class="badge">Proyecto en curso</span>
+        <h1>{project.title}</h1>
+        <p>{project.description}</p>
+
+        <div class="meta">
+          <div class="meta-item">
+            <span>Cliente</span>
+            <strong>{project.client}</strong>
+          </div>
+          <div class="meta-item">
+            <span>Estado actual</span>
+            <strong>{project.status}</strong>
+          </div>
+          <div class="meta-item">
+            <span>Última actualización</span>
+            <strong>{project.lastUpdate}</strong>
+          </div>
+          <div class="meta-item">
+            <span>Próximo paso</span>
+            <strong>{project.nextAction}</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>Progreso del proyecto</h2>
+
+        <div class="steps">
+          {
+            project.steps.map((label, index) => {
+              const isDone = index < project.currentStep
+              const isActive = index === project.currentStep
+
+              return (
+                <div class={`step ${isDone ? 'done' : ''} ${isActive ? 'active' : ''}`}>
+                  <span class="dot" />
+                  <div class="step-content">
+                    {label}
+                    {isActive && <small>Etapa actual · en progreso</small>}
+                    {isDone && <small>Completado</small>}
+                  </div>
+                </div>
+              )
+            })
+          }
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          Este panel se actualiza a medida que avanzamos en el proyecto.
+          <br />
+          Si tienes dudas o comentarios, puedes escribirnos directamente por
+          <a
+            href="https://wa.me/56994186218?text=Tengo%20dudas%20acerca%20de%20en%20qué%20etapa%20se%20encuentra%20mi%20proyecto."
+            target="_blank"
+          >
+            WhatsApp
+          </a>.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
