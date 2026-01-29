@@ -1,212 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { contact } from '../data/site'
-
-const phone = contact.whatsapp.phone
-const message = encodeURIComponent(contact.whatsapp.messages.default)
-const wa = `https://wa.me/${phone}?text=${message}`
 ---
 
 <BaseLayout
-  title="Acerca de Kümera | Estudio Digital Independiente"
-  description="Kümera es un estudio digital independiente que combina estrategia, diseño y tecnología para crear productos digitales claros, funcionales y orientados a resultados."
+  title="Nosotros | Kümera"
+  description="Somos un estudio digital enfocado en sitios web, Google Ads y ecommerce Shopify."
   canonical="https://www.kumeraweb.com/acerca-de"
 >
-  <main class="about-page">
-    <section class="hero">
-      <div class="container hero-inner">
-        <p class="eyebrow">Acerca de Kümera</p>
-        <h1>Diseño y tecnología con intención</h1>
-        <p class="lead">
-          Somos un estudio independiente enfocado en construir productos digitales que funcionan en
-          el mundo real, no solo en el diseño.
+  <section class="bg-white">
+    <div class="mx-auto w-full max-w-[1120px] px-6 py-16 md:py-24 space-y-8 md:space-y-12">
+      <p class="text-xs font-semibold uppercase tracking-[0.26em] text-black/40">Nosotros</p>
+      <h1 class="font-['Space_Grotesk'] text-5xl tracking-tight text-black md:text-7xl">
+        Una agencia pequeña, enfoque comercial claro
+      </h1>
+      <p class="max-w-[65ch] text-lg text-black/70 md:text-xl">
+        Trabajamos con negocios que necesitan resultados reales: leads, ventas y claridad en su
+        comunicación digital.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-[#f7f7f7]">
+    <div class="mx-auto w-full max-w-[1120px] px-6 grid gap-12 py-16 md:grid-cols-3 md:py-24">
+      <div class="border border-black/10 bg-white p-8">
+        <h2 class="font-['Space_Grotesk'] text-2xl text-black">Foco</h2>
+        <p class="mt-4 text-base text-black/70">
+          Sitios web, Google Ads y ecommerce Shopify. Menos dispersión, más resultados.
         </p>
       </div>
-    </section>
-
-    <section class="about">
-      <div class="container about-grid">
-        <h2>Quiénes somos</h2>
-        <p>
-          Kümera es un estudio digital creado para ayudar a empresas y emprendimientos a ordenar,
-          comunicar y potenciar su presencia digital. Trabajamos de forma cercana, estratégica y con
-          foco en resultados medibles.
-        </p>
-
-        <p>
-          No creemos en soluciones genéricas ni en proyectos inflados. Cada sitio, app o campaña se
-          diseña con un objetivo claro y un proceso bien definido.
+      <div class="border border-black/10 bg-white p-8">
+        <h2 class="font-['Space_Grotesk'] text-2xl text-black">Claridad</h2>
+        <p class="mt-4 text-base text-black/70">
+          Precio y alcance definidos desde el inicio para evitar pérdida de tiempo.
         </p>
       </div>
-    </section>
-
-    <!-- FILOSOFÍA -->
-    <section class="philosophy">
-      <div class="container philosophy-grid">
-        <h2>Nuestra forma de trabajar</h2>
-
-        <div class="pillars">
-          <div>
-            <strong>Claridad</strong>
-            <span>Entender el problema antes de diseñar la solución.</span>
-          </div>
-          <div>
-            <strong>Criterio</strong>
-            <span>Decisiones conscientes en diseño, tecnología y alcance.</span>
-          </div>
-          <div>
-            <strong>Resultados</strong>
-            <span>Productos digitales que aportan valor real al negocio.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ORIGEN -->
-    <section class="origin">
-      <div class="container origin-inner">
-        <h2>Por qué Kümera</h2>
-        <p class="origin-text">
-          El nombre Kümera nace de <em>küme</em>, una palabra del mapudungún que expresa la idea de
-          hacer las cosas bien: con intención, calidad y respeto por el proceso. Esa filosofía guía
-          la manera en que diseñamos y construimos cada proyecto.
+      <div class="border border-black/10 bg-white p-8">
+        <h2 class="font-['Space_Grotesk'] text-2xl text-black">Relación directa</h2>
+        <p class="mt-4 text-base text-black/70">
+          Sin capas intermedias. Te atiende el equipo que ejecuta.
         </p>
       </div>
-    </section>
-
-    <!-- CIERRE -->
-    <section class="closing">
-      <div class="container">
-        <h2>Trabajemos con intención</h2>
-        <p class="muted">
-          Si buscas un partner digital que piense tu proyecto antes de ejecutarlo, conversemos.
-        </p>
-
-        <a href={wa} class="btn-primary">Hablemos</a>
-      </div>
-    </section>
-  </main>
-
-  <style>
-    .about-page {
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 6rem 0 5rem;
-    }
-
-    .hero-inner {
-      max-width: 720px;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.75rem;
-      color: #9ca3af;
-      margin-bottom: 1rem;
-    }
-
-    .lead {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      margin-top: 1.25rem;
-      color: #374151;
-    }
-
-    /* ABOUT */
-    .about {
-      padding: 5rem 0;
-    }
-
-    .about-grid {
-      max-width: 720px;
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    /* PHILOSOPHY */
-    .philosophy {
-      background: #fafafa;
-      padding: 5rem 0;
-    }
-
-    .philosophy-grid {
-      max-width: 720px;
-      display: grid;
-      gap: 2.5rem;
-    }
-
-    .pillars {
-      display: grid;
-      gap: 1.75rem;
-    }
-
-    .pillars strong {
-      display: block;
-      font-size: 1rem;
-    }
-
-    .pillars span {
-      display: block;
-      margin-top: 0.25rem;
-      color: #6b7280;
-      font-size: 0.95rem;
-    }
-
-    /* ORIGIN */
-    .origin {
-      padding: 5rem 0;
-    }
-
-    .origin-inner {
-      max-width: 640px;
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .origin-text {
-      color: #6b7280;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    /* CLOSING */
-    .closing {
-      padding: 6rem 0;
-      text-align: center;
-    }
-
-    .closing .container {
-      max-width: 640px;
-      display: grid;
-      gap: 1.75rem;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: 999px;
-      background: #0f172a;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .btn-primary:hover {
-      background: #020617;
-    }
-
-    .muted {
-      color: #6b7280;
-    }
-  </style>
+    </div>
+  </section>
 </BaseLayout>

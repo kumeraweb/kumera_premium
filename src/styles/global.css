@@ -1,10 +1,20 @@
-/* Tipografías desde Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
-/* Reset suave + box sizing */
-*,
-*::before,
-*::after {
+:root {
+  --color-bg: #ffffff;
+  --color-bg-deep: #f7f7f7;
+  --color-text: #111111;
+  --color-text-soft: #333333;
+  --color-muted: #7a7a7a;
+  --color-brand: #0d1f2e;
+  --color-accent: #f46a1c;
+  --color-dark: #000000;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+* {
   box-sizing: border-box;
 }
 
@@ -14,70 +24,15 @@ body {
   padding: 0;
 }
 
-:root {
-  /* Base clara */
-  --color-bg: #ffffff;
-  --color-bg-deep: #f7f7f7;
-
-  /* Texto */
-  --color-text: #111111;
-  --color-text-soft: #333333;
-  --color-muted: #7a7a7a;
-
-  /* Marca */
-  --color-brand: #0d1f2e; /* tu azul petróleo */
-  --color-accent: #f46a1c; /* naranjo premium */
-  --color-dark: #000000;
-
-  /* Tipografías */
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-
-  /* Tipografía escala */
-  --text-display: clamp(3.5rem, 5vw, 5.5rem);
-  --text-h1: clamp(2.8rem, 4vw, 4rem);
-  --text-h2: clamp(2rem, 3vw, 2.8rem);
-  --text-h3: clamp(1.5rem, 2.3vw, 2rem);
-  --text-body: 1rem;
-  --text-body-lg: 1.125rem;
-
-  /* Spacing */
-  --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-
-  /* Layout */
-  --max-width: 1120px;
-  --radius-lg: 18px;
-
-  /* Motion */
-  --transition-fast: 150ms ease-out;
-  --transition-normal: 220ms ease-out;
-}
-
 body {
   font-family: var(--font-body);
-  font-size: var(--text-body);
-  line-height: 1.6;
   color: var(--color-text);
   background: var(--color-bg);
+  line-height: 1.65;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Contenedor global reutilizable */
-.km-container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-md);
-}
-
-/* Estilo base para headings */
 h1,
 h2,
 h3,
@@ -90,15 +45,3 @@ h4 {
 p {
   margin: 0;
 }
-
-/* Utilidad para secciones */
-.km-section {
-  padding-block: var(--space-3xl);
-}
-
-/* Solo para depurar de momento: un borde suave si lo necesitamos */
-/*
-.km-debug {
-  outline: 1px dashed rgba(244, 106, 28, 0.4);
-}
-*/

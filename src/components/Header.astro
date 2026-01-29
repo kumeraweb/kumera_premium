@@ -2,548 +2,76 @@
 const { logoText = 'KÜMERA' } = Astro.props
 ---
 
-<header class="km-header">
-  <div class="km-container km-header-inner">
-    <div class="km-logo-wrap">
-      <a href="/" class="km-logo">{logoText}</a>
-    </div>
+<header class="sticky top-0 z-50 border-b border-black/5 bg-white/85 backdrop-blur transition-shadow">
+  <div class="mx-auto w-full max-w-[1120px] px-6 flex items-center justify-between py-5 md:py-6">
+    <a href="/" class="font-['Space_Grotesk'] text-xl font-semibold tracking-tight text-black">
+      {logoText}
+    </a>
 
-    <nav class="km-nav" aria-label="Navegación principal">
-      <ul class="km-nav-list">
-        <li class="km-nav-item">
-          <a href="/#estudio" class="km-nav-link">¿Qué hacemos?</a>
-        </li>
-
-        <li class="km-nav-item km-nav-item-capabilities">
-          <button class="km-nav-link km-nav-link-button" type="button">
-            Servicios
-            <span class="km-nav-pill"></span>
-          </button>
-
-          <div class="km-capabilities-panel">
-            <div class="km-capabilities-inner">
-              <div class="km-capabilities-col">
-                <a href="/sitios-web" class="km-capability">
-                  <span class="km-capability-title">Sitios Web</span>
-                  <span class="km-capability-desc">
-                    Sitios y landing pages rápidas, claras y enfocadas en conversión.
-                  </span>
-                </a>
-
-                <a href="/google-ads" class="km-capability">
-                  <span class="km-capability-title">Google Ads</span>
-                  <span class="km-capability-desc">
-                    Campañas optimizadas para generar demanda y clientes reales.
-                  </span>
-                </a>
-
-                <a href="/apps-moviles" class="km-capability">
-                  <span class="km-capability-title">Apps Móviles</span>
-                  <span class="km-capability-desc">
-                    Aplicaciones iOS y Android para escalar tu negocio o idea.
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li class="km-nav-item">
-          <a href="/#proyectos" class="km-nav-link">Proyectos</a>
-        </li>
-
-        <li class="km-nav-item">
-          <a href="/acerca-de" class="km-nav-link km-nav-link-muted">Nosotros</a>
-        </li>
-        <li class="km-nav-item">
-          <a href="/#contacto" class="km-nav-link km-nav-link-cta">Escríbenos</a>
-        </li>
-      </ul>
+    <nav class="hidden items-center gap-9 text-[0.7rem] font-medium uppercase tracking-[0.28em] text-black/75 md:flex">
+      <a href="/" class="transition hover:text-black">Inicio</a>
+      <a href="/sitios-web" class="transition hover:text-black">Sitios Web</a>
+      <a href="/google-ads" class="transition hover:text-black">Google Ads</a>
+      <a href="/ecommerce-shopify" class="transition hover:text-black">Ecommerce (Shopify)</a>
+      <a href="/precios" class="transition hover:text-black">Precios</a>
+      <a
+        href="/contacto"
+        class="relative inline-flex items-center gap-2 text-black after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform hover:after:scale-x-100"
+      >
+        Contacto
+      </a>
     </nav>
 
-    <button class="km-mobile-toggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
+    <button
+      class="md:hidden"
+      id="kmMobileToggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      type="button"
+    >
+      <span class="block h-[2px] w-7 bg-black transition-transform"></span>
+      <span class="mt-2 block h-[2px] w-7 bg-black transition-transform"></span>
     </button>
   </div>
 </header>
 
-<div class="km-mobile-panel">
-  <div class="km-mobile-inner">
-    <nav class="km-mobile-nav">
-      <ul>
-        <li><a href="/#estudio">¿Qué hacemos?</a></li>
-
-        <li class="km-mobile-cap-label">Servicios</li>
-        <ul class="km-mobile-cap-list">
-          <li><a href="/sitios-web">Sitios Web</a></li>
-          <li><a href="/google-ads">Google Ads</a></li>
-          <li><a href="/apps-moviles">Apps Móviles</a></li>
-        </ul>
-
-        <li><a href="/#proyectos">Proyectos</a></li>
-        <li><a href="/acerca-de" class="km-mobile-muted">Nosotros</a></li>
-        <li><a href="/#contacto">Escríbenos</a></li>
-      </ul>
-
-      <a href="/#contacto" class="km-mobile-cta">Hablemos</a>
+<div
+  id="kmMobilePanel"
+  class="fixed inset-0 z-40 hidden bg-white/95 backdrop-blur"
+  aria-hidden="true"
+>
+  <div class="mx-auto w-full max-w-[1120px] px-6 flex h-full flex-col justify-between pt-24 pb-10">
+    <nav class="flex flex-col gap-6 font-['Space_Grotesk'] text-2xl text-black">
+      <a href="/">Inicio</a>
+      <a href="/sitios-web">Sitios Web</a>
+      <a href="/google-ads">Google Ads</a>
+      <a href="/ecommerce-shopify">Ecommerce (Shopify)</a>
+      <a href="/precios">Precios</a>
+      <a href="/contacto" class="text-black/70">Contacto</a>
     </nav>
+
+    <p class="text-sm uppercase tracking-[0.2em] text-black/50">Kümera — Agencia Digital</p>
   </div>
 </div>
 
-<style>
-  .km-header {
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    padding: var(--space-sm) 0;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(14px);
-    transition:
-      background 0.4s ease,
-      border-color 0.4s ease;
-  }
-
-  .km-header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-  }
-
-  .km-logo-wrap {
-    mix-blend-mode: difference;
-  }
-
-  .km-logo {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: #000;
-    text-decoration: none;
-    transition:
-      color 0.45s ease,
-      opacity 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .km-logo:hover {
-    opacity: 0.7;
-    transform: translateY(-1px);
-  }
-
-  .km-nav {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-
-  .km-nav-list {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  .km-nav-item {
-    position: relative;
-  }
-
-  .km-nav-link {
-    position: relative;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #111;
-    padding-bottom: 0.2rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition:
-      color 0.25s ease,
-      opacity 0.25s ease;
-  }
-
-  .km-nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 100%;
-    transform: scaleX(0);
-    transform-origin: left;
-    background: #111;
-    transition: transform 0.28s ease;
-  }
-
-  .km-nav-link:hover::after {
-    transform: scaleX(1);
-  }
-
-  .km-nav-link-button {
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .km-nav-pill {
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: var(--color-accent);
-  }
-
-  .km-header-cta {
-    display: flex;
-    align-items: center;
-  }
-
-  .km-cta-link {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding-bottom: 0.25rem;
-    color: #111;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition:
-      color 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .km-cta-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 100%;
-    transform: scaleX(0);
-    transform-origin: left;
-    background: #111;
-    transition: transform 0.28s ease;
-  }
-
-  .km-cta-link:hover::after {
-    transform: scaleX(1);
-  }
-
-  .km-cta-link:hover {
-    transform: translateX(4px);
-  }
-
-  .km-capability {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .km-capabilities-panel {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateY(12px);
-    top: 100%;
-    width: min(960px, 100vw - 2rem);
-    padding: 1.75rem 2rem;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(20px);
-    border-radius: 18px;
-    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
-    opacity: 0;
-    pointer-events: none;
-    transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .km-capabilities-inner {
-    display: grid;
-    grid-template-columns: 1.1fr 1.1fr;
-    gap: 2rem;
-  }
-
-  .km-capabilities-col {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-  }
-
-  .km-capability-title {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.25rem;
-  }
-
-  .km-capability-desc {
-    display: block;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--color-muted);
-  }
-
-  .km-nav-item-capabilities:hover .km-capabilities-panel,
-  .km-nav-item-capabilities:focus-within .km-capabilities-panel {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .km-header.scrolled {
-    background: rgba(0, 0, 0, 0.92);
-  }
-
-  .km-header.scrolled .km-logo-wrap {
-    mix-blend-mode: normal;
-  }
-
-  .km-header.scrolled .km-logo,
-  .km-header.scrolled .km-nav-link,
-  .km-header.scrolled .km-cta-link {
-    color: #fff;
-  }
-
-  .km-header.scrolled .km-nav-link::after,
-  .km-header.scrolled .km-cta-link::after {
-    background: #fff;
-  }
-
-  .km-header.scrolled .km-capabilities-panel {
-    background: rgba(10, 10, 10, 0.98);
-  }
-
-  .km-header.scrolled .km-capability-desc {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .km-header.scrolled .km-capability-title {
-    color: #fff;
-  }
-
-  .km-header.scrolled .km-capabilities-panel {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .km-header.scrolled .km-nav-pill {
-    background: var(--color-accent);
-  }
-
-  /* MOBILE MENU BASE */
-  .km-mobile-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-  }
-
-  .km-mobile-toggle span {
-    width: 28px;
-    height: 2px;
-    background: #111;
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease;
-  }
-
-  /* TOGGLE ACTIVE ANIMATION */
-  .km-mobile-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .km-mobile-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .km-mobile-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  /* PANEL */
-  .km-mobile-panel {
-    position: fixed;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(22px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    z-index: 98;
-  }
-
-  .km-mobile-panel.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .km-mobile-inner {
-    padding: 5rem 2rem 4.5rem;
-    max-height: 100vh;
-    overflow-y: auto;
-  }
-
-  .km-mobile-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-  }
-
-  .km-mobile-nav > ul > li > a {
-    font-size: clamp(1.25rem, 4.5vw, 1.6rem);
-    font-family: var(--font-heading);
-    letter-spacing: -0.02em;
-    color: #000;
-    text-decoration: none;
-    display: block;
-  }
-
-  .km-mobile-cap-label {
-    display: flex;
-    align-items: center;
-    font-size: clamp(1.15rem, 4vw, 1.4rem);
-    font-family: var(--font-heading);
-    letter-spacing: -0.02em;
-    opacity: 0.85;
-    margin-top: 0.6rem;
-  }
-
-  .km-mobile-cap-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--color-accent);
-  }
-
-  .km-mobile-cap-list {
-    margin-top: 0.1rem;
-  }
-
-  .km-mobile-cap-list li {
-    font-size: clamp(0.95rem, 3.5vw, 1.05rem);
-    opacity: 0.65;
-    padding-left: 1.4rem;
-    position: relative;
-  }
-
-  .km-mobile-cap-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #000;
-    opacity: 0.4;
-  }
-
-  .km-mobile-cap-list li a {
-    color: #000;
-    text-decoration: none;
-  }
-
-  .km-mobile-cta {
-    margin-top: 2.2rem;
-    display: block;
-    width: 100%;
-    padding: 1rem 0;
-    text-align: center;
-    border: 1px solid #111;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    position: sticky;
-    bottom: 1.5rem;
-    background: #fff;
-    color: #000;
-    text-decoration: none;
-  }
-
-  @media (max-width: 768px) {
-    .km-mobile-toggle {
-      display: flex;
-    }
-
-    .km-nav,
-    .km-header-cta {
-      display: none;
-    }
-
-    .km-header-inner {
-      gap: 1rem;
-    }
-
-    .km-logo {
-      font-size: 1.35rem;
-    }
-
-    .km-nav {
-      display: none;
-    }
-
-    .km-header-cta {
-      display: none;
-    }
-
-    /* Invert hamburger color when header is scrolled */
-    .km-header.scrolled .km-mobile-toggle span {
-      background: #fff;
-    }
-
-    .km-nav-link-muted {
-      opacity: 0.45;
-    }
-
-    .km-nav-link-muted::after {
-      display: none;
-    }
-
-    .km-nav-link-muted:hover {
-      opacity: 0.85;
-    }
-
-    .km-mobile-muted {
-      opacity: 0.55;
-    }
-  }
-</style>
-
 <script is:inline>
-  const mobileToggle = document.querySelector('.km-mobile-toggle')
-  const mobilePanel = document.querySelector('.km-mobile-panel')
+  const toggle = document.getElementById('kmMobileToggle')
+  const panel = document.getElementById('kmMobilePanel')
 
-  mobileToggle.addEventListener('click', () => {
-    mobileToggle.classList.toggle('active')
-    mobilePanel.classList.toggle('active')
-  })
-
-  const mobileLinks = document.querySelectorAll('.km-mobile-nav a')
-  mobileLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileToggle.classList.remove('active')
-      mobilePanel.classList.remove('active')
+  if (toggle && panel) {
+    toggle.addEventListener('click', () => {
+      const isOpen = panel.classList.contains('hidden')
+      panel.classList.toggle('hidden')
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+      panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true')
     })
-  })
 
-  const header = document.querySelector('.km-header')
-
-  const handleScroll = () => {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled')
-    } else {
-      header.classList.remove('scrolled')
-    }
+    panel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        panel.classList.add('hidden')
+        toggle.setAttribute('aria-expanded', 'false')
+        panel.setAttribute('aria-hidden', 'true')
+      })
+    })
   }
-
-  window.addEventListener('scroll', handleScroll)
 </script>

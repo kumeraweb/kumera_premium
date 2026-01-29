@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 
-// ===== CONFIGURACIÓN =====
 const ACCESS_KEY = 'spa2026'
 const ISSUE_DATE = new Date('2026-01-17')
 const VALID_DAYS = 15
@@ -9,7 +8,7 @@ const VALID_DAYS = 15
 const clientName = 'Casa Spa – San Pedro de la Paz'
 const projectName = 'Sitio web y campañas Google Ads'
 
-const formatDateCL = (d: any) =>
+const formatDateCL = (d) =>
   d.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })
 
 const expiresAt = new Date(ISSUE_DATE)
@@ -20,274 +19,164 @@ expiresAt.setDate(expiresAt.getDate() + VALID_DAYS)
   title={`Cotización – Casa Spa San Pedro | Kümera`}
   description="Propuesta de sitio web y campañas Google Ads preparada por Kümera para Casa Spa San Pedro de la Paz."
   canonical="https://www.kumeraweb.com/cotizaciones/spa-sanpedro"
+  noindex={true}
 >
-  <main class="quote-page">
-    <!-- ACCESS OVERLAY -->
-    <div id="access-overlay" class="overlay">
-      <div class="overlay-card">
-        <p class="overlay-eyebrow">Propuesta privada</p>
-        <h1>Cotización – {clientName}</h1>
-        <p class="overlay-text">
-          Esta propuesta fue preparada especialmente para su proyecto.
-          <br />Ingrese la clave de acceso para visualizarla.
+  <div class="relative min-h-screen bg-white">
+    <div
+      id="access-overlay"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6 backdrop-blur"
+    >
+      <div class="w-full max-w-lg rounded-[18px] bg-white p-8 text-center shadow-[0_22px_45px_rgba(0,0,0,0.12)]">
+        <p class="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black/50">
+          Propuesta privada
+        </p>
+        <h1 class="mt-3 font-['Space_Grotesk'] text-2xl text-black">Cotización – {clientName}</h1>
+        <p class="mt-3 text-sm text-black/70">
+          Esta propuesta fue preparada especialmente para su proyecto. Ingrese la clave de acceso
+          para visualizarla.
         </p>
 
-        <p id="expired-msg" class="error">Esta cotización ya no se encuentra disponible.</p>
+        <p id="expired-msg" class="mt-4 hidden text-sm text-red-600">
+          Esta cotización ya no se encuentra disponible.
+        </p>
 
-        <input id="access-input" type="password" placeholder="Clave de acceso" autocomplete="off" />
-        <button id="access-btn">Acceder</button>
+        <input
+          id="access-input"
+          type="password"
+          placeholder="Clave de acceso"
+          autocomplete="off"
+          class="mt-6 w-full rounded-xl border border-black/10 px-4 py-3 text-sm"
+        />
+        <button
+          id="access-btn"
+          class="mt-3 w-full rounded-full bg-black px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:opacity-90"
+        >
+          Acceder
+        </button>
 
-        <p id="access-error" class="error">Clave incorrecta</p>
+        <p id="access-error" class="mt-4 hidden text-sm text-red-600">Clave incorrecta</p>
       </div>
     </div>
 
-    <!-- CONTENIDO COTIZACIÓN -->
-    <section id="quote-content" class="content blurred">
-      <section class="hero">
-        <p class="eyebrow">Cotización preliminar</p>
-        <h1>Diseño de sitio web y Google Ads para casa-spa</h1>
-        <p class="lead">
+    <section id="quote-content" class="mx-auto w-full max-w-[1120px] px-6 py-16 blur-sm md:py-24">
+      <section class="space-y-3">
+        <p class="text-xs font-semibold uppercase tracking-[0.26em] text-black/40">
+          Cotización preliminar
+        </p>
+        <h1 class="font-['Space_Grotesk'] text-3xl tracking-tight text-black md:text-4xl">
+          Diseño de sitio web y Google Ads para casa-spa
+        </h1>
+        <p class="max-w-2xl text-sm text-black/70 md:text-base">
           Propuesta enfocada en arriendos diarios, con formulario de contacto, enlace a Booking y
           Google Ads como canal principal de captación.
         </p>
       </section>
 
-      <section class="block">
-        <h2>Información general</h2>
-        <ul class="meta">
+      <section class="mt-10 space-y-3">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Información general</h2>
+        <ul class="space-y-2 text-sm text-black/70">
           <li><strong>Cliente:</strong> {clientName}</li>
           <li><strong>Proyecto:</strong> {projectName}</li>
           <li><strong>Proveedor:</strong> Kümera – Servicios Digitales</li>
           <li><strong>Fecha de emisión:</strong> {formatDateCL(ISSUE_DATE)}</li>
           <li>
-            <strong>Validez:</strong>
-            {VALID_DAYS} días (hasta {formatDateCL(expiresAt)})
+            <strong>Validez:</strong> {VALID_DAYS} días (hasta {formatDateCL(expiresAt)})
           </li>
         </ul>
       </section>
 
-      <section class="block">
-        <h2>Alcance del proyecto</h2>
-        <ul>
-          <li>Sitio web responsive (desktop y mobile)</li>
+      <section class="mt-10 space-y-3">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Alcance del proyecto</h2>
+        <ul class="list-disc space-y-2 pl-5 text-sm text-black/70">
+          <li>Sitio web responsive (desktop y mobile).</li>
           <li>
-            Hasta <strong>5 secciones</strong>: Inicio, Experiencia, Galería, Ubicación y Contacto
+            Hasta <strong>5 secciones</strong>: Inicio, Experiencia, Galería, Ubicación y Contacto.
           </li>
-          <li>Formulario de contacto</li>
-          <li>Enlace directo a Booking</li>
-          <li>Optimización básica para conversión</li>
-          <li>Dominio + hosting por 1 año</li>
-          <li>Primer mes de administración del sitio incluido</li>
+          <li>Formulario de contacto.</li>
+          <li>Enlace directo a Booking.</li>
+          <li>Optimización básica para conversión.</li>
+          <li>Dominio + hosting por 1 año.</li>
+          <li>Primer mes de administración del sitio incluido.</li>
         </ul>
       </section>
 
-      <section class="block">
-        <h2>Multidioma (opcional)</h2>
-        <ul>
-          <li>Idiomas adicionales: Inglés y Alemán</li>
-          <li>Valor: $25.000 + IVA</li>
-          <li>Pago único</li>
+      <section class="mt-10 space-y-3">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Multidioma (opcional)</h2>
+        <ul class="list-disc space-y-2 pl-5 text-sm text-black/70">
+          <li>Idiomas adicionales: Inglés y Alemán.</li>
+          <li>Valor: $25.000 + IVA.</li>
+          <li>Pago único.</li>
         </ul>
       </section>
 
-      <section class="block">
-        <h2>Google Ads</h2>
-        <ul>
-          <li>Administración de campañas</li>
-          <li>Reporte semanal</li>
-          <li>Ajustes al sitio web y mantención general</li>
-          <li>Presupuesto publicitario no incluido</li>
+      <section class="mt-10 space-y-3">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Google Ads</h2>
+        <ul class="list-disc space-y-2 pl-5 text-sm text-black/70">
+          <li>Administración de campañas.</li>
+          <li>Reporte semanal.</li>
+          <li>Ajustes al sitio web y mantención general.</li>
+          <li>Presupuesto publicitario no incluido.</li>
         </ul>
       </section>
 
-      <section class="block">
-        <h2>Plazo estimado</h2>
-        <p><strong>Máximo 5 días hábiles</strong> desde la contratación.</p>
+      <section class="mt-10 space-y-2">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Plazo estimado</h2>
+        <p class="text-sm text-black/70">
+          <strong>Máximo 5 días hábiles</strong> desde la contratación.
+        </p>
       </section>
 
-      <section class="block total">
-        <h2>Valor total del proyecto – Sitio web</h2>
-        <p class="total-price">$125.000 + IVA</p>
-        <p class="muted">Pago único. Incluye dominio, hosting y primer mes de administración.</p>
+      <section class="mt-10 rounded-[18px] border border-black/10 bg-[#f7f7f7] p-8">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Valor total del proyecto – Sitio web</h2>
+        <p class="mt-3 text-2xl font-semibold text-black">$125.000 + IVA</p>
+        <p class="mt-2 text-sm text-black/70">
+          Pago único. Incluye dominio, hosting y primer mes de administración.
+        </p>
       </section>
 
-      <section class="block total">
-        <h2>Valor Multidioma</h2>
-        <p class="total-price">$25.000 + IVA</p>
-        <p class="muted">Pago único.</p>
+      <section class="mt-6 rounded-[18px] border border-black/10 bg-[#f7f7f7] p-8">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Valor Multidioma</h2>
+        <p class="mt-3 text-2xl font-semibold text-black">$25.000 + IVA</p>
+        <p class="mt-2 text-sm text-black/70">Pago único.</p>
       </section>
 
-      <section class="block total">
-        <h2>Valor administracion mensual – Google Ads y Sitio Web</h2>
-        <p class="total-price">$30.000 + IVA mensual</p>
-        <p class="muted">
+      <section class="mt-6 rounded-[18px] border border-black/10 bg-[#f7f7f7] p-8">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">
+          Valor administración mensual – Google Ads y Sitio Web
+        </h2>
+        <p class="mt-3 text-2xl font-semibold text-black">$30.000 + IVA mensual</p>
+        <p class="mt-2 text-sm text-black/70">
           Administración de campañas, envío de reportes semanales y optimización continua del sitio
           web. Inversión publicitaria no incluida.
         </p>
       </section>
 
-      <section class="block">
-        <h2>Forma de pago</h2>
-        <ul>
-          <li>Sitio web: 50% al iniciar – 50% previo a publicación</li>
+      <section class="mt-10 space-y-3">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Forma de pago</h2>
+        <ul class="list-disc space-y-2 pl-5 text-sm text-black/70">
+          <li>Sitio web: 50% al iniciar – 50% previo a publicación.</li>
           <li>
-            Google Ads: incluido el primer mes, luego $30.000 + iva mensual a partir del segundo mes
+            Google Ads: incluido el primer mes, luego $30.000 + IVA mensual a partir del segundo
+            mes.
           </li>
         </ul>
       </section>
 
-      <section class="block">
-        <h2>Consideraciones</h2>
-        <ul>
+      <section class="mt-10 space-y-3">
+        <h2 class="font-['Space_Grotesk'] text-xl text-black">Consideraciones</h2>
+        <ul class="list-disc space-y-2 pl-5 text-sm text-black/70">
           <li>La propuesta considera únicamente el alcance descrito.</li>
-          <li>No incluye community management ni gestión de redes sociales</li>
+          <li>No incluye community management ni gestión de redes sociales.</li>
           <li>No incluye material audiovisual; este debe ser provisto por el cliente.</li>
-          Cambios o funcionalidades adicionales se cotizan aparte como sistemas de pago o reservas, chat
-          en vivo etc.
+          <li>
+            Cambios o funcionalidades adicionales se cotizan aparte (sistemas de pago, reservas,
+            chat en vivo, etc.).
+          </li>
         </ul>
       </section>
     </section>
-  </main>
+  </div>
 </BaseLayout>
-
-<style>
-  .quote-page {
-    background: var(--color-bg);
-    min-height: 100vh;
-  }
-
-  /* OVERLAY */
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(6px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-    padding: 1.5rem;
-  }
-
-  .overlay-card {
-    background: #fff;
-    padding: 2.5rem;
-    max-width: 420px;
-    width: 100%;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
-  }
-
-  .overlay-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-muted);
-    margin-bottom: 0.75rem;
-  }
-
-  .overlay-text {
-    color: #374151;
-    margin: 1rem 0 1.5rem;
-  }
-
-  .overlay-card input {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 0.75rem;
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
-  }
-
-  .overlay-card button {
-    width: 100%;
-    padding: 0.75rem;
-    border-radius: 10px;
-    background: var(--color-text);
-    color: var(--color-bg);
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .error {
-    display: none;
-    color: #dc2626;
-    font-size: 0.85rem;
-    margin-top: 0.75rem;
-  }
-
-  /* CONTENT */
-  .content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 6rem 1.5rem;
-  }
-
-  .blurred {
-    filter: blur(10px);
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .hero {
-    margin-bottom: 3rem;
-  }
-
-  .eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-muted);
-  }
-
-  .lead {
-    margin-top: 1rem;
-    max-width: 620px;
-    color: #374151;
-  }
-
-  .block {
-    margin-bottom: 2.5rem;
-  }
-
-  .meta {
-    list-style: none;
-    padding: 0;
-  }
-
-  .meta li {
-    margin-bottom: 0.5rem;
-  }
-
-  ul,
-  ol {
-    padding-left: 1.25rem;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
-  }
-
-  .total {
-    background: #fafafa;
-    padding: 2.25rem;
-    border-radius: 12px;
-  }
-
-  .total-price {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-top: 0.75rem;
-  }
-
-  .muted {
-    color: #6b7280;
-    margin-top: 0.5rem;
-  }
-</style>
 
 <script is:inline>
   const btn = document.getElementById('access-btn')
@@ -303,24 +192,24 @@ expiresAt.setDate(expiresAt.getDate() + VALID_DAYS)
 
   const isExpired = new Date() > expiresAt
 
-  btn.addEventListener('click', unlock)
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') unlock()
-  })
-
-  function unlock() {
+  const unlock = () => {
     if (isExpired) {
-      input.style.display = 'none'
-      btn.style.display = 'none'
-      expiredMsg.style.display = 'block'
+      input.classList.add('hidden')
+      btn.classList.add('hidden')
+      expiredMsg.classList.remove('hidden')
       return
     }
 
     if (input.value === 'spa2026') {
-      overlay.style.display = 'none'
-      content.classList.remove('blurred')
+      overlay.classList.add('hidden')
+      content.classList.remove('blur-sm')
     } else {
-      error.style.display = 'block'
+      error.classList.remove('hidden')
     }
   }
+
+  btn.addEventListener('click', unlock)
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') unlock()
+  })
 </script>

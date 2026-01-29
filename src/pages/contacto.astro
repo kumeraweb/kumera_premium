@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CTA from '../components/CTA.astro'
+import { contact } from '../data/site'
+---
+
+<BaseLayout
+  title="Contacto | Kümera"
+  description="Cuéntanos tu proyecto de sitio web, Google Ads o ecommerce Shopify. Respuesta en menos de 24 horas hábiles."
+  canonical="https://www.kumeraweb.com/contacto"
+>
+  <section class="bg-white">
+    <div class="mx-auto w-full max-w-[1120px] px-6 py-16 md:py-24 space-y-8 md:space-y-12">
+      <p class="py-1.5 text-xs font-semibold uppercase tracking-[0.26em] text-black/40">Contacto</p>
+      <h1 class="font-['Space_Grotesk'] text-5xl tracking-tight text-black md:text-7xl">
+        Hablemos de tu proyecto
+      </h1>
+      <p class="py-1.5 max-w-[65ch] text-lg text-black/70 md:text-xl">
+        Trabajamos con sitios web, Google Ads y ecommerce Shopify. Si tu proyecto calza, te
+        responderemos rápido y con claridad.
+      </p>
+      <div class="grid gap-2 text-sm text-black/70">
+        <p>
+          <span class="font-semibold text-black">Email:</span>
+          {contact.email}
+        </p>
+        <p>
+          <span class="font-semibold text-black">Teléfono:</span>
+          {contact.phone}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

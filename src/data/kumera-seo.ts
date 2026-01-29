@@ -9,21 +9,19 @@ export const SEO = {
   },
 
   defaultMeta: {
-    title: 'Kümera — Sitios Web, Google Ads y Apps para Negocios',
+    title: 'Kümera — Sitios Web, Google Ads y Ecommerce Shopify',
     description:
-      'En Kümera creamos sitios web modernos, gestionamos campañas de Google Ads y desarrollamos apps móviles para hacer crecer tu negocio.',
+      'En Kümera diseñamos sitios web claros, gestionamos Google Ads y creamos ecommerce Shopify con foco en clientes reales.',
     keywords: [
       'diseño web chile',
       'desarrollo web profesional',
       'google ads chile',
       'agencia digital chile',
-      'apps móviles chile',
+      'ecommerce shopify chile',
       'sitios web para pymes',
-      'marketing digital chile',
-      // refuerzo long-tail leve
-      'diseño web para empresas',
       'agencia google ads chile',
-      'creación de sitios web profesionales'
+      'creación de sitios web profesionales',
+      'diseño web para empresas'
     ]
   },
 

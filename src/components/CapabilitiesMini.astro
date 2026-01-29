@@ -1,62 +1,81 @@
-<section class="caps">
-  <ul class="caps-list">
-    <li>
-      <h3>Branding & Identidad</h3>
-      <p>Construimos marcas claras, modernas y con intención.</p>
-    </li>
+<section class="bg-white">
+  <div class="mx-auto w-full max-w-[1120px] px-6 py-16 md:py-24">
+    <div class="mb-12 flex items-end justify-between gap-8">
+      <div>
+        <p class="py-1.5 text-xs font-semibold uppercase tracking-[0.26em] text-black/40">
+          Servicios
+        </p>
+        <h2 class="mt-4 font-['Space_Grotesk'] text-4xl tracking-tight text-black md:text-5xl">
+          Lo que sí hacemos, y lo hacemos bien
+        </h2>
+      </div>
+      <a
+        href="/contacto"
+        class="hidden text-xs font-semibold uppercase tracking-[0.2em] text-black/70 underline-offset-4 hover:underline md:block"
+      >
+        Agendar evaluación
+      </a>
+    </div>
 
-    <li>
-      <h3>Sitios Web & Landing Pages</h3>
-      <p>Diseño elegante, carga rápida y conversión como prioridad.</p>
-    </li>
+    <div class="grid gap-12 md:grid-cols-3">
+      <div class="border-t border-black/10 pt-8">
+        <h3 class="font-['Space_Grotesk'] text-2xl text-black">Sitios Web</h3>
+        <p class="mt-4 text-base text-black/70">
+          Landing pages y sitios claros, rápidos y diseñados para generar confianza y leads.
+        </p>
+        <a
+          href="/sitios-web"
+          class="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-black underline-offset-4 hover:underline"
+        >
+          <span>Ver detalles</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="border-t border-black/10 pt-8">
+        <h3 class="font-['Space_Grotesk'] text-2xl text-black">Google Ads</h3>
+        <p class="mt-4 text-base text-black/70">
+          Estructura de campañas con intención, anuncios relevantes y medición real.
+        </p>
+        <a
+          href="/google-ads"
+          class="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-black underline-offset-4 hover:underline"
+        >
+          <span>Ver detalles</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="border-t border-black/10 pt-8">
+        <h3 class="font-['Space_Grotesk'] text-2xl text-black">Ecommerce Shopify</h3>
+        <p class="mt-4 text-base text-black/70">
+          Tiendas simples para vender, con estructura clara y soporte real.
+        </p>
+        <a
+          href="/ecommerce-shopify"
+          class="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-black underline-offset-4 hover:underline"
+        >
+          <span>Ver detalles</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <style>
+    @keyframes arrow-nudge {
+      0%,
+      70%,
+      100% {
+        transform: translateX(0);
+        opacity: 0.7;
+      }
+      85% {
+        transform: translateX(4px);
+        opacity: 1;
+      }
+    }
 
-    <li>
-      <h3>Apps Móviles & Sistemas</h3>
-      <p>Desde MVPs hasta plataformas internas hechas a medida.</p>
-    </li>
-
-    <li>
-      <h3>Google Ads & Performance</h3>
-      <p>Crecimiento medible y adquisición de clientes con estrategia.</p>
-    </li>
-  </ul>
+    .arrow {
+      display: inline-block;
+      animation: arrow-nudge 3.5s ease-in-out infinite;
+    }
+  </style>
 </section>
-
-<style>
-  .caps {
-    padding: 4rem 0 5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .caps-list {
-    max-width: 1050px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem 4rem;
-  }
-
-  .caps-list h3 {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    margin: 0 0 0.4rem;
-    letter-spacing: -0.02em;
-  }
-
-  .caps-list p {
-    font-size: 1.05rem;
-    opacity: 0.75;
-    margin: 0;
-  }
-
-  @media (max-width: 800px) {
-    .caps {
-      padding: 3rem 1.6rem 4rem;
-    }
-
-    .caps-list {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-  }
-</style>

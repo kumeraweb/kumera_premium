@@ -1,0 +1,115 @@
+---
+import { getWhatsAppUrl } from '../data/site'
+
+interface Props {
+  title: string
+  price: string
+  period?: string
+  description: string
+  features: string[]
+  badge?: string
+  featured?: boolean
+  whatsappMessage: string
+}
+
+const {
+  title,
+  price,
+  period = '',
+  description,
+  features,
+  badge,
+  featured = false,
+  whatsappMessage
+} = Astro.props
+
+const whatsappUrl = getWhatsAppUrl(whatsappMessage)
+---
+
+<div
+  class={`
+    relative flex flex-col justify-between rounded-3xl border bg-white p-8 transition-all duration-300
+    ${featured ? 'border-black shadow-xl scale-[1.02]' : 'border-neutral-200 hover:shadow-lg'}
+  `}
+>
+  {
+    badge && (
+      <span
+        class={`
+        absolute -top-3 left-6 rounded-full px-3 py-1 text-xs font-semibold tracking-wide
+        ${featured ? 'bg-black text-white' : 'bg-neutral-100 text-neutral-700'}
+      `}
+      >
+        {badge}
+      </span>
+    )
+  }
+
+  <div class="space-y-6">
+    <div class="space-y-2">
+      <h3 class="text-2xl font-semibold text-neutral-900">
+        {title}
+      </h3>
+
+      <p class="text-sm text-neutral-500">
+        {description}
+      </p>
+    </div>
+
+    <div class="flex items-end gap-1">
+      <span class="text-4xl font-bold text-neutral-900">
+        {price}
+      </span>
+      {period && <span class="pb-1 text-sm text-neutral-500">{period}</span>}
+    </div>
+
+    <ul class="space-y-2 pt-2">
+      {
+        features.map((feature) => (
+          <li class="flex items-start gap-2 text-sm text-neutral-700">
+            <span class="mt-1 h-1.5 w-1.5 rounded-full bg-neutral-900" />
+            {feature}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="mt-8 flex flex-col gap-3">
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      class={`
+        inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all
+        ${
+          featured
+            ? 'bg-black text-white hover:bg-neutral-800'
+            : 'bg-neutral-900 text-white hover:bg-neutral-800'
+        }
+      `}
+    >
+      Hablar por WhatsApp
+      <span class="inline-block transition-transform group-hover:translate-x-1"> → </span>
+    </a>
+
+    <a
+      href="/precios"
+      class="inline-flex items-center justify-center gap-1 text-sm text-neutral-600 hover:text-neutral-900 transition"
+    >
+      Ver detalles
+      <span class="inline-block animate-[arrow_2s_ease-in-out_infinite]">→</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  @keyframes arrow {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(4px);
+    }
+  }
+</style>

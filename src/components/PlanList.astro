@@ -1,0 +1,77 @@
+---
+import PlanCard from './PlanCard.astro'
+---
+
+<section class="mx-auto max-w-7xl px-6 py-24">
+  <div class="mb-16 max-w-2xl">
+    <p class="py-1.5 text-xs uppercase tracking-widest text-neutral-400">Precios</p>
+    <h2 class="mt-3 text-4xl font-semibold text-neutral-900">Planes claros, sin sorpresas</h2>
+    <p class="mt-4 text-neutral-600">
+      Rangos reales para decisiones rápidas. Sin reuniones innecesarias ni letra chica.
+    </p>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-3">
+    <PlanCard
+      title="Sitio Web Profesional"
+      price="$90.000"
+      description="Landing clara y rápida para validar tu negocio."
+      features={[
+        'Diseño enfocado en conversión',
+        'Carga ultrarrápida',
+        'Dominio + hosting (1 año)',
+        'Optimización SEO básica'
+      ]}
+      whatsappMessage="Hola, me interesa el plan Sitio Web Profesional. ¿Podemos conversar?"
+    />
+
+    <PlanCard
+      title="Web + Google Ads"
+      price="$90.000"
+      period="/mes"
+      badge="Más elegido"
+      featured={true}
+      description="Sitio web incluido + gestión profesional de campañas."
+      features={[
+        'Sitio web sin costo inicial',
+        'Gestión estratégica de Google Ads',
+        'Optimización de conversiones',
+        'Reporte mensual claro'
+      ]}
+      whatsappMessage="Hola, me interesa el plan Web + Google Ads. Quisiera saber cómo partir."
+    />
+
+    <PlanCard
+      title="Ecommerce Shopify"
+      price="$120.000"
+      description="Tiendas simples enfocadas en vender."
+      features={[
+        'Configuración completa',
+        'Carga inicial de productos',
+        'Pasarelas de pago locales',
+        'Capacitación básica'
+      ]}
+      whatsappMessage="Hola, me interesa el plan Ecommerce Shopify. ¿Podemos ver detalles?"
+    />
+  </div>
+
+  <div class="mt-20 max-w-3xl">
+    <h3 class="text-2xl font-semibold text-neutral-900">
+      ¿Tienes un proyecto más grande en mente?
+    </h3>
+
+    <p class="mt-4 text-neutral-600">
+      Estos planes están pensados para sitios web claros, campañas de Google Ads y soluciones
+      acotadas. Si tu proyecto requiere backend, dashboards, integraciones o una lógica más
+      compleja, conversemos y veamos la mejor forma de abordarlo.
+    </p>
+
+    <a
+      href="/contacto"
+      class="mt-8 inline-flex items-center gap-2 rounded-full border border-black px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-black hover:text-white"
+    >
+      Cuéntanos tu proyecto
+      <span class="inline-block">→</span>
+    </a>
+  </div>
+</section>

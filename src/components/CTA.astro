@@ -1,377 +1,119 @@
-<section class="km-cta" id="contacto">
-  <div class="cta-flex">
-    <div class="km-container">
-      <h2 class="contact-title reveal-on-scroll">¿Listo para comenzar algo increíble?</h2>
-
-      <p class="contact-subtitle reveal-on-scroll">
-        Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas.
+<section id="contacto" class="relative bg-white">
+  <div
+    class="mx-auto w-full max-w-[1120px] px-6 grid gap-16 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24"
+  >
+    <div class="space-y-8">
+      <p class="py-1.5 text-xs font-semibold uppercase tracking-[0.26em] text-black/40">Contacto</p>
+      <h2
+        class="font-['Space_Grotesk'] text-4xl leading-[1.1] tracking-tight text-black md:text-5xl"
+      >
+        Cuéntanos tu proyecto y definamos el próximo paso
+      </h2>
+      <p class="py-1.5 max-w-[65ch] text-base text-black/70 md:text-lg">
+        ¿Tienes una idea o un proyecto en mente? Escríbenos y veamos si podemos ayudarte a llevarlo
+        a buen puerto.
       </p>
-
-      <div class="contact-stage">
-        <form class="contact-form reveal-on-scroll" method="POST" action="/api/contact">
-          <div class="field-group">
-            <label>Nombre</label>
-            <input name="nombre" type="text" placeholder="Tu nombre" />
-            <p class="field-error" data-error-for="nombre"></p>
-          </div>
-
-          <div class="field-group">
-            <label>Email</label>
-            <input name="email" type="text" placeholder="tu@email.com" />
-            <p class="field-error" data-error-for="email"></p>
-          </div>
-
-          <div class="field-group">
-            <label>Tipo de proyecto <span class="optional">(opcional)</span></label>
-            <input name="tipo" type="text" placeholder="Sitio Web, App, Google Ads…" />
-          </div>
-
-          <div class="field-group">
-            <label>Mensaje <span class="optional">(opcional)</span></label>
-            <textarea name="mensaje" placeholder="Cuéntanos brevemente en qué puedo ayudarte"
-            ></textarea>
-          </div>
-
-          <button type="submit" class="contact-submit"> Enviar mensaje → </button>
-          <p class="contact-status" aria-live="polite"></p>
-        </form>
-
-        <div class="contact-success">
-          <h3>Mensaje enviado</h3>
-          <p>
-            Gracias por escribirnos. En Kümera revisamos cada proyecto con atención y te
-            responderemos muy pronto.
-          </p>
-        </div>
-      </div>
     </div>
 
-    <div class="cta-pattern" aria-hidden="true">
-      <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
-        <line x1="50" y1="0" x2="350" y2="600" stroke="rgba(0,0,0,0.08)" stroke-width="1"></line>
-        <line x1="150" y1="0" x2="450" y2="600" stroke="rgba(0,0,0,0.08)" stroke-width="1"></line>
-        <line x1="250" y1="0" x2="550" y2="600" stroke="var(--color-accent)" stroke-width="1"
-        ></line>
+    <div data-contact-stage class="border border-black/10 bg-white p-8">
+      <form class="space-y-8" method="POST" action="/api/contact">
+        <div class="space-y-2">
+          <label class="text-xs uppercase tracking-[0.2em] text-black/50">Nombre</label>
+          <input
+            name="nombre"
+            type="text"
+            placeholder="Tu nombre"
+            class="w-full border-b border-black/30 bg-transparent pb-3 text-sm text-black outline-none focus:border-black"
+          />
+          <p class="hidden text-xs text-red-600" data-error-for="nombre"></p>
+        </div>
 
-        <line
-          x1="100"
-          y1="0"
-          x2="400"
-          y2="600"
-          stroke="rgba(0,0,0,0.08)"
-          stroke-width="1.5"
-          opacity="0.35"></line>
-      </svg>
+        <div class="space-y-2">
+          <label class="text-xs uppercase tracking-[0.2em] text-black/50">Email</label>
+          <input
+            name="email"
+            type="text"
+            placeholder="tu@email.com"
+            class="w-full border-b border-black/30 bg-transparent pb-3 text-sm text-black outline-none focus:border-black"
+          />
+          <p class="hidden text-xs text-red-600" data-error-for="email"></p>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-xs uppercase tracking-[0.2em] text-black/50">
+            Tipo de proyecto <span class="text-[0.7rem] normal-case">(opcional)</span>
+          </label>
+          <input
+            name="tipo"
+            type="text"
+            placeholder="Sitio web, Google Ads, Ecommerce..."
+            class="w-full border-b border-black/30 bg-transparent pb-3 text-sm text-black outline-none focus:border-black"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-xs uppercase tracking-[0.2em] text-black/50">
+            Mensaje <span class="text-[0.7rem] normal-case">(opcional)</span>
+          </label>
+          <textarea
+            name="mensaje"
+            placeholder="Cuéntanos brevemente tu necesidad"
+            class="min-h-[120px] w-full resize-none border-b border-black/30 bg-transparent pb-3 text-sm text-black outline-none focus:border-black"
+          ></textarea>
+        </div>
+
+        <div class="flex justify-center pt-8">
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:opacity-90"
+          >
+            Enviar mensaje
+          </button>
+        </div>
+        <p class="text-xs text-black/60" aria-live="polite" data-status></p>
+      </form>
+
+      <div class="hidden space-y-3" data-contact-success>
+        <h3 class="font-['Space_Grotesk'] text-2xl text-black">Mensaje enviado</h3>
+        <p class="text-sm text-black/70">
+          Gracias por escribirnos. Revisaremos tu proyecto y te contactaremos muy pronto.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-<style>
-  .km-cta {
-    padding: 6rem 0 8rem;
-    background: #ffffff;
-    color: #111;
-    position: relative;
-  }
-
-  .contact-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    line-height: 1.1;
-    max-width: 22ch;
-    margin-bottom: 1.2rem;
-  }
-
-  .contact-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.65;
-    max-width: 48ch;
-    margin-bottom: 3rem;
-    line-height: 1.55;
-  }
-
-  .contact-form {
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-  }
-
-  .field-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .field-group label {
-    font-size: 0.95rem;
-    opacity: 0.7;
-  }
-
-  .field-group input,
-  .field-group textarea {
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 0.6rem 0;
-    font-size: 1rem;
-    font-family: var(--font-body);
-    background: transparent;
-    outline: none;
-    transition: border-color 0.2s ease;
-  }
-
-  .field-group input:focus,
-  .field-group textarea:focus {
-    border-color: #111;
-  }
-
-  .field-group textarea {
-    min-height: 120px;
-    resize: none;
-  }
-
-  .contact-submit {
-    margin-top: 1rem;
-    font-size: 1rem;
-    background: #111;
-    color: #fff;
-    padding: 0.9rem 1.6rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
-    width: fit-content;
-  }
-
-  .contact-submit:hover {
-    opacity: 0.8;
-    transform: translateX(4px);
-  }
-
-  .contact-status {
-    margin-top: 0.6rem;
-    font-size: 0.9rem;
-    min-height: 1.2em;
-    opacity: 0.85;
-  }
-
-  .contact-status.success {
-    color: #15803d; /* green-700 approximated */
-  }
-
-  .contact-status.error {
-    color: #b91c1c; /* red-700 approximated */
-  }
-
-  .cta-pattern {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    display: block;
-  }
-
-  .cta-pattern svg {
-    width: 100%;
-    height: 100%;
-    opacity: 0.7;
-  }
-
-  @keyframes slowDriftY {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-12px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  .cta-pattern svg {
-    animation: slowDriftY 14s ease-in-out infinite;
-  }
-
-  .cta-flex {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 4rem;
-  }
-
-  .km-container {
-    width: 50%;
-    z-index: 2;
-    position: relative;
-  }
-
-  .cta-pattern {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-end;
-  }
-
-  .cta-pattern svg {
-    width: 100%;
-    height: 100%;
-    opacity: 0.6;
-  }
-
-  @media (max-width: 768px) {
-    .km-cta {
-      padding: 4rem 1.6rem 6rem;
-    }
-
-    .contact-form {
-      max-width: 100%;
-    }
-
-    .cta-flex {
-      flex-direction: column;
-    }
-
-    .km-container {
-      width: 100%;
-    }
-
-    .cta-pattern {
-      display: none;
-    }
-  }
-
-  .field-error {
-    font-size: 0.85rem;
-    color: #b91c1c;
-    min-height: 1em;
-    opacity: 0;
-    transform: translateY(-4px);
-    transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .field-error.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .contact-success {
-    max-width: 520px;
-    padding: 2.5rem 2rem;
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.03);
-    opacity: 0;
-    transform: translateX(-40px);
-    pointer-events: none;
-  }
-
-  .contact-success h3 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .contact-success p {
-    opacity: 0.7;
-    line-height: 1.6;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .optional {
-    font-size: 0.8rem;
-    opacity: 0.55;
-    font-weight: 400;
-  }
-
-  /* Animación slide profesional */
-  .contact-stage {
-    position: relative;
-    overflow: hidden;
-    min-height: 420px;
-  }
-
-  .contact-form,
-  .contact-success {
-    transition:
-      transform 0.6s ease,
-      opacity 0.4s ease;
-  }
-
-  .contact-form {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  .contact-success {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .contact-stage.success .contact-form {
-    transform: translateX(40px);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .contact-stage.success .contact-success {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-    animation: fadeUp 0.6s ease forwards;
-  }
-</style>
 <script is:inline>
-  const form = document.querySelector('.contact-form')
-  const statusEl = document.querySelector('.contact-status')
+  const stage = document.querySelector('[data-contact-stage]')
+  if (stage) {
+    const form = stage.querySelector('form')
+    const statusEl = stage.querySelector('[data-status]')
+    const successEl = stage.querySelector('[data-contact-success]')
 
-  if (form) {
     form.addEventListener('submit', async (event) => {
       event.preventDefault()
-
-      const submitButton = form.querySelector('.contact-submit')
+      const submitButton = form.querySelector('button[type="submit"]')
       const originalText = submitButton.textContent
 
       const nombreInput = form.querySelector('input[name="nombre"]')
       const emailInput = form.querySelector('input[name="email"]')
-
       const nombreError = form.querySelector('[data-error-for="nombre"]')
       const emailError = form.querySelector('[data-error-for="email"]')
 
       const clearErrors = () => {
         ;[nombreError, emailError].forEach((el) => {
           el.textContent = ''
-          el.classList.remove('visible')
+          el.classList.add('hidden')
         })
       }
 
       clearErrors()
 
       let hasError = false
-
       const nombre = nombreInput.value.trim()
       if (nombre.length < 2) {
         nombreError.textContent = '¿Podrías indicarnos tu nombre?'
-        nombreError.classList.add('visible')
+        nombreError.classList.remove('hidden')
         hasError = true
       }
 
@@ -380,7 +122,7 @@
 
       if (!emailRegex.test(email)) {
         emailError.textContent = 'Revisa el formato del email.'
-        emailError.classList.add('visible')
+        emailError.classList.remove('hidden')
         hasError = true
       } else {
         const commonTypos = {
@@ -395,7 +137,7 @@
         const domain = email.split('@')[1]
         if (commonTypos[domain]) {
           emailError.textContent = `¿Quisiste decir ${email.split('@')[0]}@${commonTypos[domain]}?`
-          emailError.classList.add('visible')
+          emailError.classList.remove('hidden')
           hasError = true
         }
       }
@@ -404,6 +146,7 @@
 
       submitButton.disabled = true
       submitButton.textContent = 'Enviando...'
+      statusEl.textContent = ''
 
       try {
         const formData = new FormData(form)
@@ -413,15 +156,17 @@
         })
 
         if (response.ok) {
-          const stage = document.querySelector('.contact-stage')
-          stage.classList.add('success')
+          form.classList.add('hidden')
+          successEl.classList.remove('hidden')
         } else {
           submitButton.disabled = false
           submitButton.textContent = originalText
+          statusEl.textContent = 'Hubo un problema al enviar. Intenta nuevamente.'
         }
       } catch {
         submitButton.disabled = false
         submitButton.textContent = originalText
+        statusEl.textContent = 'No se pudo enviar. Intenta nuevamente.'
       }
     })
   }

@@ -1,335 +1,129 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { contact } from '../data/site'
+import { contact, getWhatsAppUrl } from '../data/site'
 
-const phone = contact.whatsapp.phone
-const message = encodeURIComponent(contact.whatsapp.messages.ads)
-const wa = `https://wa.me/${phone}?text=${message}`
+const wa = getWhatsAppUrl(contact.whatsapp.messages.ads)
 ---
 
 <BaseLayout
   title="Google Ads bien ejecutado | Kümera"
-  description="Google Ads funciona cuando se usa con intención, estructura y medición. Te ayudamos a invertir bien, no a gastar."
-  canonical="https://www.kumeraweb.cl/google-ads"
+  description="Google Ads con estructura, intención y medición. Campañas claras para generar leads reales."
+  canonical="https://www.kumeraweb.com/google-ads"
 >
-  <main class="ads-page">
-    <section class="hero">
-      <div class="container hero-inner">
-        <p class="eyebrow">Google Ads</p>
-        <h1>Google Ads no es gastar dinero</h1>
-        <p class="lead">
-          Funciona cuando cada peso tiene una intención clara: visibilidad, contactos o ventas.
+  <section class="bg-white">
+    <div class="mx-auto w-full max-w-[1120px] px-6 py-16 md:py-24 space-y-8 md:space-y-12">
+      <p class="py-1.5 text-xs font-semibold uppercase tracking-[0.26em] text-black/40">
+        Google Ads
+      </p>
+      <h1 class="font-['Space_Grotesk'] text-5xl tracking-tight text-black md:text-7xl">
+        Google Ads no es gastar: es invertir con criterio
+      </h1>
+      <p class="max-w-[65ch] text-lg text-black/70 md:text-xl">
+        Estructuramos campañas para que cada peso tenga intención, y cada clic tenga sentido.
+      </p>
+      <div class="mt-2 flex flex-col gap-4 sm:flex-row">
+        <a
+          href="/precios"
+          class="inline-flex items-center justify-center rounded-full border border-black px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:bg-black hover:text-white"
+        >
+          Ver planes
+        </a>
+        <a
+          href={wa}
+          class="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:opacity-90"
+        >
+          Revisar mis campañas
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-black/10 bg-white">
+    <div
+      class="mx-auto w-full max-w-[1120px] px-6 grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24"
+    >
+      <div class="space-y-8">
+        <h2 class="font-['Space_Grotesk'] text-3xl text-black">¿No usas Google Ads?</h2>
+        <p class="max-w-[65ch] text-base text-black/70 md:text-lg">
+          Si no apareces cuando te buscan, estás dejando clientes en manos de la competencia.
         </p>
-
-        <a href={wa} class="btn-primary">Revisar mis campañas</a>
       </div>
-    </section>
-    <section class="block">
-      <div class="container two-cols">
-        <div>
-          <h2>¿No usas Google Ads?</h2>
-          <p class="muted">
-            Cuando alguien busca tu servicio en Google, ya tiene intención. Si no apareces ahí,
-            estás regalando clientes a tu competencia.
-          </p>
-        </div>
-
-        <div class="mockup">
-          <img src="/imgs/a.png" alt="Ejemplo anuncio Google Ads" />
-        </div>
-      </div>
-    </section>
-    <section class="block alt">
-      <div class="container">
-        <h2>¿Lo usas, pero…?</h2>
-        <p class="muted">Muchos negocios invierten en Google Ads sin una estructura clara.</p>
-
-        <div class="ads-problems">
-          <div>
-            <strong>1.240 clicks</strong>
-            <span>0 llamadas</span>
-          </div>
-          <div>
-            <strong>Alta impresión</strong>
-            <span>Baja intención</span>
-          </div>
-          <div>
-            <strong>Presupuesto activo</strong>
-            <span>Resultados confusos</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="block">
-      <div class="container two-cols">
-        <div>
-          <h2>El error más común</h2>
-          <p class="muted">
-            Mezclar todo en una sola campaña: marca, servicios y objetivos distintos.
-          </p>
-          <p class="muted">Cuando todo compite entre sí, nada se potencia.</p>
-        </div>
-
-        <div class="mockup">
-          <img src="/imgs/c.png" alt="Ejemplo estructura incorrecta de campañas Google Ads" />
-        </div>
-      </div>
-    </section>
-    <section class="block alt">
-      <div class="container">
-        <h2>La solución</h2>
-        <p class="muted">Google Ads debe reflejar la lógica de tu negocio.</p>
-
-        <div class="ads-solution">
-          <div>
-            <strong>Intención</strong>
-            <span>Cada campaña cumple un propósito claro.</span>
-          </div>
-          <div>
-            <strong>Estructura</strong>
-            <span>Marca, servicios y objetivos separados.</span>
-          </div>
-          <div>
-            <strong>Medición</strong>
-            <span>Clicks que se traducen en acciones reales.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="closing">
-      <div class="container">
-        <h2>Invertir bien es parte del crecimiento</h2>
-        <p class="muted">
-          Si estás invirtiendo —o piensas hacerlo— hagámoslo con criterio, datos y una estrategia
-          clara.
+      <div class="border border-black/10 bg-white p-8">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-black/40">Insight</p>
+        <p class="mt-4 text-base text-black/70">
+          Cuando la intención es alta, cada clic vale. La clave es capturarlo con una campaña bien
+          estructurada.
         </p>
-
-        <a href={wa} class="btn-primary">Hablemos</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <style>
-    .ads-page {
-      overflow-x: hidden;
-      width: 100%;
-    }
+  <section class="bg-[#f7f7f7]">
+    <div class="mx-auto w-full max-w-[1120px] px-6 py-16 md:py-24 space-y-8 md:space-y-12">
+      <h2 class="font-['Space_Grotesk'] text-3xl text-black md:text-4xl">Problemas comunes</h2>
+      <p class="max-w-[65ch] text-base text-black/70 md:text-lg">
+        Muchos negocios invierten sin una estructura clara. Así se pierde presupuesto.
+      </p>
+      <div class="grid gap-10 md:grid-cols-3">
+        <div class="border border-black/10 bg-white p-8">
+          <p class="text-xl font-semibold text-black">1.240 clicks</p>
+          <p class="mt-3 text-base text-black/70">0 llamadas reales</p>
+        </div>
+        <div class="border border-black/10 bg-white p-8">
+          <p class="text-xl font-semibold text-black">Alta impresión</p>
+          <p class="mt-3 text-base text-black/70">Baja intención</p>
+        </div>
+        <div class="border border-black/10 bg-white p-8">
+          <p class="text-xl font-semibold text-black">Presupuesto activo</p>
+          <p class="mt-3 text-base text-black/70">Resultados confusos</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+  <section class="bg-white">
+    <div
+      class="mx-auto w-full max-w-[1120px] px-6 grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24"
+    >
+      <div class="space-y-8">
+        <h2 class="font-['Space_Grotesk'] text-3xl text-black md:text-4xl">La solución</h2>
+        <p class="max-w-[65ch] text-base text-black/70 md:text-lg">
+          Ads debe reflejar la lógica de tu negocio, no un set de palabras sueltas.
+        </p>
+      </div>
+      <div class="space-y-8 text-base text-black/70 md:text-lg">
+        <div class="border-l border-black/60 pl-5">
+          <p class="font-semibold text-black">Intención</p>
+          <p>Cada campaña responde a un objetivo real.</p>
+        </div>
+        <div class="border-l border-black/60 pl-5">
+          <p class="font-semibold text-black">Estructura</p>
+          <p>Marca, servicios y objetivos separados.</p>
+        </div>
+        <div class="border-l border-black/60 pl-5">
+          <p class="font-semibold text-black">Medición</p>
+          <p>Conversiones claras, reportes accionables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    /* HERO */
-    .hero {
-      padding: 6rem 0 5rem;
-    }
-    .hero-inner {
-      max-width: 720px;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.75rem;
-      color: #9ca3af;
-      margin-bottom: 1rem;
-    }
-
-    .lead {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      margin: 1.25rem 0 2.5rem;
-      color: #374151;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: 999px;
-      background: #0f172a;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .btn-primary:hover {
-      background: #020617;
-    }
-
-    /* BLOQUES */
-    .block {
-      padding: 5rem 0;
-    }
-    .alt {
-      background: #fafafa;
-    }
-
-    .two-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .mockup {
-      border: 1px dashed #cbd5f5;
-      border-radius: 16px;
-      height: 260px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      position: relative;
-      background: #fff;
-      min-height: 260px;
-    }
-
-    .mockup img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 16px;
-      background: #fff;
-      max-width: 100%;
-    }
-
-    /* PROBLEMAS ADS */
-    .ads-problems {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .ads-problems > div {
-      position: relative;
-      padding-top: 1.25rem;
-      border-top: 4px solid transparent;
-      animation: adsProblem 6s infinite;
-    }
-
-    .ads-problems > div:nth-child(2) {
-      animation-delay: 2s;
-    }
-    .ads-problems > div:nth-child(3) {
-      animation-delay: 4s;
-    }
-
-    .ads-problems strong {
-      font-size: 1.1rem;
-    }
-
-    .ads-problems span {
-      display: block;
-      margin-top: 0.25rem;
-      color: #6b7280;
-    }
-
-    @keyframes adsProblem {
-      0% {
-        border-top-color: transparent;
-      }
-      10% {
-        border-top-color: #0f172a;
-      }
-      30% {
-        border-top-color: #0f172a;
-      }
-      40% {
-        border-top-color: transparent;
-      }
-    }
-
-    /* SOLUCION ADS */
-    .ads-solution {
-      margin-top: 3rem;
-      display: grid;
-      gap: 2.5rem;
-      max-width: 520px;
-    }
-
-    .ads-solution > div {
-      position: relative;
-      padding-left: 1rem;
-      border-left: 4px solid transparent;
-      animation: adsSolution 6s infinite;
-    }
-
-    .ads-solution > div:nth-child(2) {
-      animation-delay: 2s;
-    }
-    .ads-solution > div:nth-child(3) {
-      animation-delay: 4s;
-    }
-
-    .ads-solution span {
-      display: block;
-      margin-top: 0.25rem;
-      color: #6b7280;
-    }
-
-    @keyframes adsSolution {
-      0% {
-        border-left-color: transparent;
-      }
-      10% {
-        border-left-color: #0f172a;
-      }
-      30% {
-        border-left-color: #0f172a;
-      }
-      40% {
-        border-left-color: transparent;
-      }
-    }
-
-    /* CIERRE */
-    .closing {
-      padding: 6rem 0;
-      text-align: center;
-    }
-
-    .closing .container {
-      max-width: 640px;
-      display: grid;
-      gap: 1.75rem;
-    }
-
-    .muted {
-      color: #6b7280;
-    }
-
-    @media (max-width: 768px) {
-      .two-cols {
-        grid-template-columns: 1fr;
-      }
-      .ads-problems {
-        grid-template-columns: 1fr;
-      }
-      .mockup {
-        height: 220px;
-        max-width: 100%;
-      }
-      .container {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-    }
-    @media (max-width: 768px) {
-      main.ads-page {
-        overflow-x: hidden;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .ads-problems > div,
-      .ads-solution > div {
-        animation: none;
-      }
-    }
-  </style>
+  <section class="bg-white">
+    <div
+      class="mx-auto w-full max-w-[1120px] px-6 py-16 text-center md:py-24 space-y-8 md:space-y-12"
+    >
+      <h2 class="font-['Space_Grotesk'] text-4xl tracking-tight text-black">
+        Invertir bien es parte del crecimiento
+      </h2>
+      <p class="mx-auto max-w-[65ch] text-base text-black/70 md:text-lg">
+        Si ya inviertes —o quieres empezar— hagámoslo con criterio, datos y una estrategia clara.
+      </p>
+      <a
+        href="/contacto"
+        class="mt-8 inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:opacity-90"
+      >
+        Hablemos
+      </a>
+    </div>
+  </section>
 </BaseLayout>

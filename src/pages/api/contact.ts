@@ -53,7 +53,6 @@ export const POST: APIRoute = async ({ request }) => {
       text-align: center;
     ">
       
-      <!-- LOGO -->
       <img 
         src="https://kumeraweb.com/logo.png"
         alt="Kümera Logo"
@@ -65,12 +64,10 @@ export const POST: APIRoute = async ({ request }) => {
         "
       />
 
-      <!-- TITULO -->
       <h2 style="margin: 0; font-size: 26px; font-weight: 600; color: #0f172a;">
         ¡Gracias por escribirnos, ${nombre}!
       </h2>
 
-      <!-- TEXTO PRINCIPAL -->
       <p style="
         font-size: 16px;
         line-height: 1.7;
@@ -81,7 +78,6 @@ export const POST: APIRoute = async ({ request }) => {
         Te responderemos dentro de las próximas <strong>24 horas</strong>.
       </p>
 
-      <!-- CTA BUTTON -->
       <a 
         href="https://kumeraweb.com"
         style="
@@ -100,7 +96,6 @@ export const POST: APIRoute = async ({ request }) => {
         Visitar nuestro sitio
       </a>
 
-      <!-- FIRMA -->
       <p style="
         font-size: 15px;
         color: #0f172a;
@@ -112,7 +107,6 @@ export const POST: APIRoute = async ({ request }) => {
 
       <hr style="margin: 30px 0; border: 0; border-top: 1px solid #e2e8f0;" />
 
-      <!-- FOOTER CORPORATIVO -->
       <div style="font-size: 13px; color: #64748b;">
         <p style="margin: 4px 0;"><strong>Kümera Servicios Digitales</strong></p>
         <p style="margin: 4px 0;">Santiago, Chile</p>

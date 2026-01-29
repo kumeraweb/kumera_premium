@@ -1,37 +1,29 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
 const title = 'Política de Privacidad – KuLift'
 const lastUpdated = '15 de diciembre de 2025'
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="description"
-      content="Política de privacidad de KuLift. Información sobre el uso y almacenamiento de datos dentro de la aplicación."
-    />
-  </head>
-
-  <body>
-    <main style="max-width: 720px; margin: 0 auto; padding: 48px 16px; line-height: 1.6;">
-      <h1>{title}</h1>
-
-      <p>
-        <strong>Última actualización:</strong>
-        {lastUpdated}
+<BaseLayout
+  title={title}
+  description="Política de privacidad de KuLift. Información sobre el uso y almacenamiento de datos dentro de la aplicación."
+  canonical="https://www.kumeraweb.com/policies/kulift-privacy"
+>
+  <section class="bg-white">
+    <div class="mx-auto w-full max-w-[1120px] px-6 max-w-3xl space-y-4 py-16 text-sm text-black/70">
+      <h1 class="font-['Space_Grotesk'] text-3xl text-black">{title}</h1>
+      <p class="text-xs text-black/60">
+        <strong>Última actualización:</strong> {lastUpdated}
       </p>
 
       <p>
-        KuLift es una aplicación móvil desarrollada por <strong>Kümera</strong>
-        cuyo objetivo es ayudar a los usuarios a crear, registrar y seguir rutinas de entrenamiento de
-        forma simple y privada.
+        KuLift es una aplicación móvil desarrollada por <strong>Kümera</strong> cuyo objetivo es
+        ayudar a los usuarios a crear, registrar y seguir rutinas de entrenamiento de forma simple y
+        privada.
       </p>
 
-      <h2>Información que recopilamos</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Información que recopilamos</h2>
       <p>
         KuLift no recopila datos personales identificables ni información sensible. La aplicación no
         requiere registro de usuario ni creación de cuentas.
@@ -43,68 +35,67 @@ const lastUpdated = '15 de diciembre de 2025'
         almacenamiento interno.
       </p>
 
-      <h2>Uso de la información</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Uso de la información</h2>
       <p>
         Los datos almacenados localmente se utilizan exclusivamente para el correcto funcionamiento
         de la aplicación. KuLift no envía información a servidores externos ni comparte datos con
         terceros.
       </p>
 
-      <h2>Compartición de datos</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Compartición de datos</h2>
       <p>
         KuLift no comparte, vende ni transfiere información de los usuarios a terceros bajo ninguna
         circunstancia.
       </p>
 
-      <h2>Servicios de terceros</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Servicios de terceros</h2>
       <p>
         KuLift no utiliza servicios de análisis, publicidad, seguimiento ni SDKs de terceros que
         recopilen datos del usuario.
       </p>
 
-      <h2>Seguridad de la información</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Seguridad de la información</h2>
       <p>
         Dado que toda la información se almacena localmente en el dispositivo, la seguridad de los
         datos depende del propio sistema operativo y de las medidas de seguridad del dispositivo del
         usuario.
       </p>
 
-      <h2>Eliminación de datos</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Eliminación de datos</h2>
       <p>
         El usuario puede eliminar todos los datos almacenados por KuLift en cualquier momento desde
         la sección de configuración de la aplicación. Esta acción elimina de forma permanente toda
         la información guardada localmente.
       </p>
 
-      <h2>Privacidad de menores</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Privacidad de menores</h2>
       <p>
         KuLift no está dirigida específicamente a menores de edad ni recopila información de
         personas menores de 13 años.
       </p>
 
-      <h2>Cambios en esta política</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Cambios en esta política</h2>
       <p>
         Kümera se reserva el derecho de actualizar esta Política de Privacidad en cualquier momento.
         Cualquier modificación será publicada en esta página con su correspondiente fecha de
         actualización.
       </p>
 
-      <h2>Contacto</h2>
+      <h2 class="pt-4 font-['Space_Grotesk'] text-xl text-black">Contacto</h2>
       <p>
         Si tienes preguntas o inquietudes sobre esta Política de Privacidad, puedes contactarnos a
         través del correo electrónico:
       </p>
-
       <p>
-        <a href="mailto:contacto@kumeraweb.com">contacto@kumeraweb.com</a>
+        <a class="underline" href="mailto:contacto@kumeraweb.com">contacto@kumeraweb.com</a>
       </p>
 
-      <hr style="margin: 40px 0;" />
+      <hr class="my-8 border-black/10" />
 
-      <p style="font-size: 13px; color: #666;">
+      <p class="text-xs text-black/50">
         Esta política de privacidad aplica exclusivamente a la aplicación KuLift y no a otros
         productos o servicios desarrollados por Kümera.
       </p>
-    </main>
-  </body>
-</html>
+    </div>
+  </section>
+</BaseLayout>

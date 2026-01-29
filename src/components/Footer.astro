@@ -1,112 +1,52 @@
-<footer class="km-footer">
-  <div class="km-container km-footer-inner reveal-on-scroll">
-    <div class="km-footer-brand">
-      <h3>KÜMERA</h3>
-      <p>Ingeniería, diseño y performance digital.</p>
+---
+import { contact } from '../data/site'
+---
+
+<footer class="border-t border-black/10 bg-white">
+  <div
+    class="mx-auto w-full max-w-[1120px] px-5 md:px-6 flex flex-col gap-10 md:gap-12 py-16 md:flex-row md:items-start md:justify-between md:py-24"
+  >
+    <div class="space-y-4 order-1 md:order-none">
+      <h3 class="font-['Space_Grotesk'] text-3xl tracking-tight text-black">KÜMERA</h3>
+      <p class="max-w-xs text-base text-black/70">
+        Sitios web, Google Ads y ecommerce enfocados en clientes reales.
+      </p>
     </div>
 
-    <div class="km-footer-info">
-      <p><span>Ubicación:</span> Concepción, Chile</p>
-      <p><span>Teléfono:</span> <a href="tel:+56994186218">+56 9 9418 6218</a></p>
-      <p><span>Email:</span> <a href="mailto:contacto@kumeraweb.com">contacto@kumeraweb.com</a></p>
+    <div class="space-y-3 text-sm text-black/80 order-2 md:order-none">
+      <p class="font-medium uppercase tracking-[0.2em] text-black/50">Servicios</p>
+      <a class="block underline-offset-4 hover:underline" href="/sitios-web">Sitios Web</a>
+      <a class="block underline-offset-4 hover:underline" href="/google-ads">Google Ads</a>
+      <a class="block underline-offset-4 hover:underline" href="/ecommerce-shopify">
+        Ecommerce Shopify
+      </a>
+      <a class="block underline-offset-4 hover:underline" href="/precios">Precios</a>
+      <a class="block underline-offset-4 hover:underline" href="/apps-moviles">Kumera Lab</a>
     </div>
 
-    <div class="km-footer-copy">
-      <p>© {new Date().getFullYear()} KÜMERA — Todos los derechos reservados.</p>
+    <div class="space-y-3 text-sm text-black/80 order-3 md:order-none">
+      <p class="font-medium uppercase tracking-[0.2em] text-black/50">Contacto</p>
+      <p>
+        <span class="font-semibold text-black">Ubicación:</span>
+        {contact.address}
+      </p>
+      <p>
+        <span class="font-semibold text-black">Teléfono:</span>
+        <a class="underline underline-offset-4" href={`tel:${contact.phone}`}>{contact.phone}</a>
+      </p>
+      <p>
+        <span class="font-semibold text-black">Email:</span>
+        <a class="underline underline-offset-4" href={`mailto:${contact.email}`}>{contact.email}</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="border-t border-black/5">
+    <div
+      class="mx-auto w-full max-w-[1120px] px-6 flex flex-col gap-2 py-6 text-xs text-black/50 md:flex-row md:items-center md:justify-between"
+    >
+      <span>© {new Date().getFullYear()} KÜMERA — Todos los derechos reservados.</span>
+      <span>Precios referenciales. Cada proyecto se evalúa con detalle.</span>
     </div>
   </div>
 </footer>
-
-<style>
-  /* ------------------------------------------- */
-  /* FOOTER BASE                                  */
-  /* ------------------------------------------- */
-  .km-footer {
-    padding: 8rem 0 4rem 0;
-    background: #ffffff;
-    color: #000;
-    border-top: 2px solid var(--accent);
-  }
-
-  .km-footer {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .km-footer-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  /* BRAND BLOCK */
-  .km-footer-brand h3 {
-    font-family: var(--font-heading);
-    font-size: 2.6rem;
-    margin: 0 0 0.5rem 0;
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  .km-footer-brand p {
-    font-size: 1rem;
-    color: #555;
-    margin: 0;
-  }
-
-  /* INFO BLOCK */
-  .km-footer-info p {
-    margin: 0.3rem 0;
-    font-size: 1.05rem;
-    letter-spacing: -0.01em;
-    color: #333;
-  }
-
-  .km-footer-info span {
-    font-weight: 600;
-    margin-right: 0.5rem;
-  }
-
-  .km-footer-info a {
-    color: #000;
-    text-decoration: none;
-    border-bottom: 1px solid #000;
-    padding-bottom: 2px;
-    transition: opacity 0.25s ease;
-  }
-
-  .km-footer-info a:hover {
-    opacity: 0.6;
-  }
-
-  /* COPYRIGHT */
-  .km-footer-copy {
-    margin-top: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    padding-top: 1.5rem;
-  }
-
-  .km-footer-copy p {
-    font-size: 0.95rem;
-    color: #555;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-
-  /* ------------------------------------------- */
-  /* DESKTOP                                      */
-  /* ------------------------------------------- */
-  @media (min-width: 768px) {
-    .km-footer-inner {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .km-footer-copy {
-      border-top: none;
-      padding-top: 0;
-      align-self: flex-end;
-    }
-  }
-</style>

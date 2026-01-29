@@ -1,131 +1,36 @@
-<section id="estudio" class="intro reveal-on-scroll">
-  <div class="intro-grid">
-    <h2 class="intro-title">
-      <span
-        id="typing-target"
-        data-text="Ingeniería + Diseño + Performance. // Creamos productos digitales que funcionan."
-      ></span>
-    </h2>
-
-    <p class="intro-text hidden-until-typed">
-      Somos un estudio independiente especializado en construir experiencias digitales que impulsan
-      negocios reales. Combinamos estrategia, diseño y tecnología para crear sitios, apps y campañas
-      que convierten.
-    </p>
-    <p class="intro-origin hidden-until-typed">
-      <strong>Kümera</strong> nace de <em>küme</em>, una palabra del mapudungún que expresa hacer
-      las cosas bien: con intención, calidad y respeto por el proceso.
-    </p>
+<section class="border-y border-black/10 bg-white">
+  <div
+    class="mx-auto w-full max-w-[1120px] px-6 grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24"
+  >
+    <div class="space-y-8">
+      <p class="py-1.5 text-xs font-semibold uppercase tracking-[0.26em] text-black/40">
+        Enfoque comercial
+      </p>
+      <h2
+        class="font-['Space_Grotesk'] text-4xl leading-[1.1] tracking-tight text-black md:text-5xl"
+      >
+        Diseñamos sitios que explican, validan y convierten. Ads que filtran y venden.
+      </h2>
+    </div>
+    <div class="space-y-8 text-base text-black/70 md:text-lg">
+      <p class="max-w-[65ch]">
+        Somos un estudio independiente enfocado en tres servicios que sí se venden y sostienen
+        negocio: sitios web, Google Ads y ecommerce Shopify.
+      </p>
+      <div class="space-y-8 mt-5">
+        <div class="border-l border-black/60 pl-5">
+          <p class="font-semibold text-black">Claridad antes que estética</p>
+          <p>El mensaje principal queda nítido en 5 segundos.</p>
+        </div>
+        <div class="border-l border-black/60 pl-5">
+          <p class="font-semibold text-black">Estructura para decidir</p>
+          <p>Jerarquía visual + CTA definidos para generar consultas reales.</p>
+        </div>
+        <div class="border-l border-black/60 pl-5">
+          <p class="font-semibold text-black">Métricas que importan</p>
+          <p>Conversiones, no likes ni métricas de vanidad.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
-<style>
-  .intro {
-    padding: 6rem 0 4rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .intro-grid {
-    max-width: 1050px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 0.8fr;
-    gap: 4rem;
-    align-items: flex-start;
-  }
-
-  .intro-title {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-  }
-
-  .intro-text {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    opacity: 0.85;
-  }
-
-  .intro-origin {
-    margin-top: 2rem;
-    max-width: 480px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--color-muted);
-    opacity: 0.75;
-  }
-
-  @media (max-width: 900px) {
-    .intro-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .intro-title {
-      font-size: 2.2rem;
-    }
-    .intro-text {
-      font-size: 1.05rem;
-    }
-    .intro {
-      padding: 4.5rem 2rem 3.2rem;
-    }
-  }
-
-  #typing-target {
-    border-right: 2px solid #000;
-    padding-right: 4px;
-    white-space: pre-wrap;
-  }
-
-  .typing-done #typing-target {
-    border-right: none;
-  }
-
-  .hidden-until-typed {
-    opacity: 0;
-    transform: translateY(10px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
-
-  .typing-done .hidden-until-typed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
-<script is:inline>
-  const introEl = document.querySelector('.intro')
-  const el = document.getElementById('typing-target')
-  const text = el.dataset.text.replace(/ \/\/ /g, '\n')
-  let i = 0
-  let started = false
-
-  function type() {
-    if (i < text.length) {
-      el.textContent = text.slice(0, i + 1)
-      i++
-      setTimeout(type, 45)
-    } else {
-      introEl.classList.add('typing-done')
-    }
-  }
-
-  function isIntroDeeplyVisible() {
-    const rect = introEl.getBoundingClientRect()
-    const vh = window.innerHeight
-
-    // Require ~30% of the section to be clearly visible before triggering
-    return rect.top < vh * 0.7 && rect.bottom > vh * 0.3
-  }
-
-  const checkInterval = setInterval(() => {
-    if (!started && introEl.classList.contains('is-visible') && isIntroDeeplyVisible()) {
-      started = true
-      setTimeout(type, 300)
-      clearInterval(checkInterval)
-    }
-  }, 120)
-</script>

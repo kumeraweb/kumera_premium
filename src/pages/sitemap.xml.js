@@ -18,6 +18,21 @@ export const GET = () => {
       changefreq: 'weekly'
     },
     {
+      url: '/ecommerce-shopify',
+      priority: 0.9,
+      changefreq: 'weekly'
+    },
+    {
+      url: '/precios',
+      priority: 0.85,
+      changefreq: 'weekly'
+    },
+    {
+      url: '/contacto',
+      priority: 0.8,
+      changefreq: 'monthly'
+    },
+    {
       url: '/apps-moviles',
       priority: 0.8,
       changefreq: 'monthly'

@@ -1,296 +1,39 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { contact } from '../data/site'
+import { contact, getWhatsAppUrl } from '../data/site'
 
-const phone = contact.whatsapp.phone
-const message = encodeURIComponent(contact.whatsapp.messages.apps)
-const wa = `https://wa.me/${phone}?text=${message}`
+const wa = getWhatsAppUrl(contact.whatsapp.messages.apps)
 ---
 
 <BaseLayout
-  title="Apps móviles a medida | Kümera"
-  description="Diseñamos y desarrollamos apps móviles que ayudan a crecer negocios y proyectos personales. Publicadas en App Store y Play Store."
-  canonical="https://www.kumeraweb.cl/apps-moviles"
+  title="Kumera Lab | Apps móviles"
+  description="Kumera Lab explora ideas móviles y soluciones a medida cuando el proyecto lo justifica."
+  canonical="https://www.kumeraweb.com/apps-moviles"
 >
-  <main class="apps-page">
-    <section class="hero">
-      <div class="container hero-inner">
-        <p class="eyebrow">Apps móviles</p>
-        <h1>Tu negocio también puede vivir en el bolsillo de tus clientes</h1>
-        <p class="lead">
-          Las apps no son solo tecnología. Son experiencia, acceso directo y una nueva forma de
-          relacionarte con tus usuarios.
-        </p>
-
-        <a href={wa} class="btn-primary">Hablemos</a>
+  <section class="bg-white">
+    <div class="mx-auto w-full max-w-[1120px] px-6 py-16 md:py-24">
+      <p class="text-xs font-semibold uppercase tracking-[0.26em] text-black/40">Kumera Lab</p>
+      <h1 class="mt-4 font-['Space_Grotesk'] text-4xl tracking-tight text-black md:text-5xl">
+        Apps móviles, solo cuando el negocio lo necesita
+      </h1>
+      <p class="mt-4 max-w-2xl text-base text-black/70 md:text-lg">
+        Nuestro foco principal está en sitios web, Google Ads y ecommerce. Las apps son un área de
+        exploración para proyectos con alto fit y alcance claro.
+      </p>
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center rounded-full border border-black px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black transition hover:bg-black hover:text-white"
+        >
+          Consultar disponibilidad
+        </a>
+        <a
+          href={wa}
+          class="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:opacity-90"
+        >
+          Hablemos por WhatsApp
+        </a>
       </div>
-    </section>
-
-    <section class="block">
-      <div class="container two-cols">
-        <div>
-          <h2>¿Por qué una app?</h2>
-          <p class="muted">
-            Estar en App Store y Play Store significa presencia permanente. Tu marca no se busca, se
-            abre.
-          </p>
-          <p class="muted">
-            Una app crea hábito, cercanía y una experiencia propia, lejos de redes sociales o
-            plataformas externas.
-          </p>
-        </div>
-
-        <div class="phone-mockup">
-          <img src="/imgs/app.png" alt="Ejemplo de app móvil" />
-        </div>
-      </div>
-    </section>
-
-    <section class="block alt">
-      <div class="container">
-        <h2>Tipos de apps que desarrollamos</h2>
-        <p class="muted">Desde ideas personales hasta herramientas clave para negocios.</p>
-
-        <div class="app-types">
-          <div>
-            <strong>Educativas</strong>
-            <span>Cursos, clases, membresías</span>
-          </div>
-          <div>
-            <strong>Delivery / pedidos</strong>
-            <span>Solicitudes, seguimiento</span>
-          </div>
-          <div>
-            <strong>Venta y catálogos</strong>
-            <span>Productos, servicios</span>
-          </div>
-          <div>
-            <strong>Suscripción</strong>
-            <span>Servicios recurrentes</span>
-          </div>
-          <div>
-            <strong>Apps personales</strong>
-            <span>Ideas, proyectos propios</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- <section class="block">
-      <div class="container">
-        <h2>Apps desarrolladas por Kümera</h2>
-        <p class="muted">Algunos proyectos reales en los que hemos trabajado.</p>
-
-        <div class="apps-list">
-          <div class="app-card">
-            <div class="logo-placeholder">Logo</div>
-            <span>App ejemplo</span>
-          </div>
-          <div class="app-card">
-            <div class="logo-placeholder">Logo</div>
-            <span>App ejemplo</span>
-          </div>
-          <div class="app-card">
-            <div class="logo-placeholder">Logo</div>
-            <span>App ejemplo</span>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <section class="block alt">
-      <div class="container">
-        <h2>Cómo trabajamos</h2>
-
-        <div class="process">
-          <div>Idea</div>
-          <div>Diseño</div>
-          <div>Desarrollo</div>
-          <div>Publicación</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="closing">
-      <div class="container">
-        <h2>No todas las ideas necesitan una app</h2>
-        <p class="muted">
-          Pero cuando la necesitan, debe ser clara, funcional y pensada para crecer.
-        </p>
-
-        <a href={wa} class="btn-primary">Hablemos</a>
-      </div>
-    </section>
-  </main>
-
-  <style>
-    .apps-page {
-      overflow-x: hidden;
-      width: 100%;
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 6rem 0 5rem;
-    }
-
-    .hero-inner {
-      max-width: 720px;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.75rem;
-      color: #9ca3af;
-      margin-bottom: 1rem;
-    }
-
-    .lead {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      margin: 1.25rem 0 2.5rem;
-      color: #374151;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: 999px;
-      background: #0f172a;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .btn-primary:hover {
-      background: #020617;
-    }
-
-    /* BLOQUES */
-    .block {
-      padding: 5rem 0;
-    }
-
-    .alt {
-      background: #fafafa;
-    }
-
-    .two-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .phone-mockup {
-      border: 1px dashed #cbd5f5;
-      border-radius: 24px;
-      height: 320px;
-      max-width: 220px;
-      margin: 0 auto;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .phone-mockup img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 24px;
-    }
-
-    /* TIPOS DE APPS */
-    .app-types {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-    }
-
-    .app-types strong {
-      display: block;
-    }
-
-    .app-types span {
-      color: #6b7280;
-      font-size: 0.9rem;
-    }
-
-    /* APPS LIST */
-    .apps-list {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 2rem;
-    }
-
-    .app-card {
-      text-align: center;
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .logo-placeholder {
-      height: 80px;
-      border-radius: 16px;
-      border: 1px dashed #cbd5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6366f1;
-      font-size: 0.85rem;
-    }
-
-    /* PROCESO */
-    .process {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-    }
-
-    .process div {
-      padding: 1rem;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      font-size: 0.9rem;
-    }
-
-    /* CIERRE */
-    .closing {
-      padding: 6rem 0;
-      text-align: center;
-    }
-
-    .closing .container {
-      max-width: 640px;
-      display: grid;
-      gap: 1.75rem;
-    }
-
-    .muted {
-      color: #6b7280;
-    }
-
-    @media (max-width: 768px) {
-      .two-cols {
-        grid-template-columns: 1fr;
-      }
-
-      .phone-mockup {
-        height: 280px;
-      }
-    }
-  </style>
+    </div>
+  </section>
 </BaseLayout>
